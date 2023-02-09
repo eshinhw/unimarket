@@ -1,4 +1,4 @@
-# Dappazon
+# Dappazon: Decentralized Amazon Clone
 
 ## Technology Stack & Tools
 
@@ -12,20 +12,19 @@
 - Install [NodeJS](https://nodejs.org/en/)
 
 ## Setting Up
-### 1. Clone/Download the Repository
 
-### 2. Install Dependencies:
+### 1. Install Dependencies:
 `$ npm install`
 
-### 3. Run tests
+### 2. Run tests
 `$ npx hardhat test`
 
-### 4. Start Hardhat node
+### 3. Start Hardhat node
 `$ npx hardhat node`
 
-### 5. Run deployment script
+### 4. Run deployment script
 In a separate terminal execute:
 `$ npx hardhat run ./scripts/deploy.js --network localhost`
 
-### 6. Start frontend
+### 5. Start frontend
 `$ npm run start`
