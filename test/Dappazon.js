@@ -31,4 +31,10 @@ describe("Dappazon Testing", () => {
       expect(await dappazon.name()).to.equal("Dappazon");
     });
   });
+
+  describe("Listing", () => {
+    it("returns item attributes", async () => {
+      expect(await dappazon.owner()).to.equal(deployer.address);
+    });
+  });
 });
