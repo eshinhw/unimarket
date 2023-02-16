@@ -19,6 +19,8 @@ contract Dappazon {
         uint256 rating;
         uint256 stock;
     }
+    // data structure in solidity?
+    mapping(uint256 => Item) public items;
 
     constructor() {
         owner = msg.sender;
@@ -34,8 +36,8 @@ contract Dappazon {
         uint256 _rating,
         uint256 _stock
     ) public {
-      
-        // create Item struct
+
+        // create Item struct using the input parameters
         Item memory item = Item(
             _id,
             _name,
@@ -46,6 +48,8 @@ contract Dappazon {
             _stock
         ); 
 
-        // Save Item struct to blockchain
+        // Save new Item to blockchain
+        // key-value pair database
+        items[_id] = item;
     }
 }
