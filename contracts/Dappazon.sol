@@ -24,6 +24,7 @@ contract Dappazon {
         owner = msg.sender;
     }
 
+    // List products
     function list(
         uint256 _id,
         string memory _name,
@@ -33,8 +34,8 @@ contract Dappazon {
         uint256 _rating,
         uint256 _stock
     ) public {
+      
         // create Item struct
-
         Item memory item = Item(
             _id,
             _name,
