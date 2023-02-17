@@ -22,8 +22,26 @@ contract Dappazon {
     // data structure in solidity?
     mapping(uint256 => Item) public items;
 
+    // Event is an inheritable member of a contract. An event is emitted, it stores the arguments passed in transaction logs.
+    // These logs are stored on blockchain and are accessible
+    // using address of the contract till the contract is present on the blockchain.
+    // An event generated is not accessible from within contracts, not even the one which have created and emitted them.
+    // An event can be declared using event keyword.
+
+    event List(string name, uint256 cost, uint256 stock);
+
     constructor() {
+        // msg.sender identifies the address of the person who's calling this
         owner = msg.sender;
+    }
+
+    // custom modifier which can be applied to a function
+    modifier onlyOwner() {
+      
+      require(msg.sender == owner);
+      // do this before the function body --> _ represents the function body
+      _;
+
     }
 
     // List products
@@ -36,7 +54,10 @@ contract Dappazon {
         uint256 _rating,
         uint256 _stock
     ) public {
-
+        // if true, keep executing codes below
+        // if false, stop executing codes at this point
+        require(msg.sender == owner);
+        
         // create Item struct using the input parameters
         Item memory item = Item(
             _id,
@@ -46,10 +67,14 @@ contract Dappazon {
             _cost,
             _rating,
             _stock
-        ); 
+        );
 
         // Save new Item to blockchain
         // key-value pair database
         items[_id] = item;
+
+        // Emit an event
+
+        emit List(_name, _cost, _stock);
     }
 }
