@@ -36,5 +36,8 @@ describe("Dappazon Testing", () => {
     it("returns item attributes", async () => {
       expect(await dappazon.owner()).to.equal(deployer.address);
     });
+    it("returns item names", async () => {
+      expect(await dappazon.owner()).to.equal(deployer.address);
+    });
   });
 });
