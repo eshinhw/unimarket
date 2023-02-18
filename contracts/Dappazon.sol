@@ -20,8 +20,18 @@ contract Dappazon {
         uint256 rating;
         uint256 stock;
     }
+
+    struct Order {
+        uint256 time;
+        Item item;
+    }
     // data structure in solidity?
     mapping(uint256 => Item) public items;
+    // orderCount[address] = 1
+    mapping(address => uint256) public orderCount;
+    // orders[address] = {1: order1, 2: order2, ...}
+    mapping(address => mapping(uint256 => Order)) public orders;
+
 
     // Event is an inheritable member of a contract. An event is emitted, it stores the arguments passed in transaction logs.
     // These logs are stored on blockchain and are accessible
@@ -79,13 +89,18 @@ contract Dappazon {
     }
 
     function buy(uint256 _id) public payable {
-      // Receive crypto
+        // Receive crypto can be completed by adding payable modifier
 
-      // Create an order
+        // Fetch an item from the item dictionary
+        Item memory item = items[_id];
+        // Create an order
+        // block.timestamp: epoch time, seconds elapsed since January 1, 1970
 
-      // Subtract stock
+        Order memory order = Order(block.timestamp, item)
 
-      // Emit event
+        // save order to chain
+
+        // Subtract stock
+        // Emit event
     }
-
 }
