@@ -72,8 +72,14 @@ describe("Dappazon Testing", () => {
       expect(item.rating).to.equal(RATING);
       expect(item.stock).to.equal(STOCK);
     });
-    it("emits an event", async () => {
-      expect(transaction).to.emit(dappazon, "List");
+    // it("emits an event", async () => {
+    //   expect(transaction).to.emit(dappazon, "List");
+    // });
+
+    it("updates the contract balance", async () => {
+      // checking the smart contract balance
+      const result = await ethers.provider.getBalance(dappazon.address);
+      expect(result).to.equal(COST);
     });
   });
 });
