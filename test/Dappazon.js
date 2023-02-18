@@ -5,6 +5,15 @@ const tokens = (n) => {
   return ethers.utils.parseUnits(n.toString(), "ether");
 };
 
+// Global constants for listing an item...
+const ID = 1;
+const NAME = "Shoes";
+const CATEGORY = "Clothing";
+const IMAGE = "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/shoes.jpg";
+const COST = tokens(1);
+const RATING = 4;
+const STOCK = 5;
+
 // Writing tests is extremely important for Smart Contract development!!
 
 describe("Dappazon Testing", () => {
@@ -17,11 +26,11 @@ describe("Dappazon Testing", () => {
     [deployer, buyer] = await ethers.getSigners();
     // console.log(await ethers.getSigners());
     // console.log(deployer, buyer)
-    console.log("deployer.address");
-    console.log(deployer.address);
+    // console.log("deployer.address");
+    // console.log(deployer.address);
 
-    console.log("buyer.address");
-    console.log(buyer.address);
+    // console.log("buyer.address");
+    // console.log(buyer.address);
 
     // Deploy contract
     // contract name is Dappazon in Dappazon.sol file
