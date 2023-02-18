@@ -31,71 +31,74 @@ describe("Dappazon Testing", () => {
 
   describe("Deployment", () => {
     it("Sets the owner", async () => {
-      expect(await dappazon.owner()).to.equal(deployer.address)
-    })
-  })
+      expect(await dappazon.owner()).to.equal(deployer.address);
+    });
+  });
 
   describe("Listing", () => {
-    let transaction
+    let transaction;
 
     beforeEach(async () => {
       // List a item
-      transaction = await dappazon.connect(deployer).list(ID, NAME, CATEGORY, IMAGE, COST, RATING, STOCK)
-      await transaction.wait()
-    })
+      transaction = await dappazon
+        .connect(deployer)
+        .list(ID, NAME, CATEGORY, IMAGE, COST, RATING, STOCK);
+      await transaction.wait();
+    });
 
     it("Returns item attributes", async () => {
-      const item = await dappazon.items(ID)
+      const item = await dappazon.items(ID);
 
-      expect(item.id).to.equal(ID)
-      expect(item.name).to.equal(NAME)
-      expect(item.category).to.equal(CATEGORY)
-      expect(item.image).to.equal(IMAGE)
-      expect(item.cost).to.equal(COST)
-      expect(item.rating).to.equal(RATING)
-      expect(item.stock).to.equal(STOCK)
-    })
+      expect(item.id).to.equal(ID);
+      expect(item.name).to.equal(NAME);
+      expect(item.category).to.equal(CATEGORY);
+      expect(item.image).to.equal(IMAGE);
+      expect(item.cost).to.equal(COST);
+      expect(item.rating).to.equal(RATING);
+      expect(item.stock).to.equal(STOCK);
+    });
 
     it("Emits List event", () => {
-      expect(transaction).to.emit(dappazon, "List")
-    })
-  })
+      expect(transaction).to.emit(dappazon, "List");
+    });
+  });
 
   describe("Buying", () => {
-    let transaction
+    let transaction;
 
     beforeEach(async () => {
       // List a item
-      transaction = await dappazon.connect(deployer).list(ID, NAME, CATEGORY, IMAGE, COST, RATING, STOCK)
-      await transaction.wait()
+      transaction = await dappazon
+        .connect(deployer)
+        .list(ID, NAME, CATEGORY, IMAGE, COST, RATING, STOCK);
+      await transaction.wait();
 
       // Buy a item
-      transaction = await dappazon.connect(buyer).buy(ID, { value: COST })
-      await transaction.wait()
-    })
-
+      transaction = await dappazon.connect(buyer).buy(ID, { value: COST });
+      await transaction.wait();
+    });
 
     it("Updates buyer's order count", async () => {
-      const result = await dappazon.orderCount(buyer.address)
-      expect(result).to.equal(1)
-    })
+      const result = await dappazon.orderCount(buyer.address);
+      expect(result).to.equal(1);
+    });
 
     it("Adds the order", async () => {
-      const order = await dappazon.orders(buyer.address, 1)
+      const order = await dappazon.orders(buyer.address, 1);
 
-      expect(order.time).to.be.greaterThan(0)
-      expect(order.item.name).to.equal(NAME)
-    })
+      expect(order.time).to.be.greaterThan(0);
+      expect(order.item.name).to.equal(NAME);
+    });
 
     it("Updates the contract balance", async () => {
-      const result = await ethers.provider.getBalance(dappazon.address)
-      expect(result).to.equal(COST)
-    })
+      const result = await ethers.provider.getBalance(dappazon.address);
+      expect(result).to.equal(COST);
+    });
 
     it("Emits Buy event", () => {
-      expect(transaction).to.emit(dappazon, "Buy")
-    })
-  })
+      expect(transaction).to.emit(dappazon, "Buy");
+    });
+  });
 
   describe("Withdrawing", () => {
     let balanceBefore;
