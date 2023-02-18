@@ -9,6 +9,7 @@ pragma solidity ^0.8.9;
 
 contract Dappazon {
     address public owner;
+    string public name;
 
     struct Item {
         uint256 id;
@@ -33,15 +34,14 @@ contract Dappazon {
     constructor() {
         // msg.sender identifies the address of the person who's calling this
         owner = msg.sender;
+        name = "Eddie";
     }
 
     // custom modifier which can be applied to a function
     modifier onlyOwner() {
-      
-      require(msg.sender == owner);
-      // do this before the function body --> _ represents the function body
-      _;
-
+        require(msg.sender == owner);
+        // do this before the function body --> _ represents the function body
+        _;
     }
 
     // List products
@@ -57,7 +57,7 @@ contract Dappazon {
         // if true, keep executing codes below
         // if false, stop executing codes at this point
         require(msg.sender == owner);
-        
+
         // create Item struct using the input parameters
         Item memory item = Item(
             _id,
@@ -77,4 +77,15 @@ contract Dappazon {
 
         emit List(_name, _cost, _stock);
     }
+
+    function buy(uint256 _id) public payable {
+      // Receive crypto
+
+      // Create an order
+
+      // Subtract stock
+
+      // Emit event
+    }
+
 }

@@ -17,19 +17,25 @@ describe("Dappazon Testing", () => {
     [deployer, buyer] = await ethers.getSigners();
     // console.log(await ethers.getSigners());
     // console.log(deployer, buyer)
+    console.log("deployer.address");
     console.log(deployer.address);
 
+    console.log("buyer.address");
+    console.log(buyer.address);
+
     // Deploy contract
+    // contract name is Dappazon in Dappazon.sol file
     const Dappazon = await ethers.getContractFactory("Dappazon");
     dappazon = await Dappazon.deploy();
   });
+
   describe("Deployment", () => {
     it("sets the owner", async () => {
       expect(await dappazon.owner()).to.equal(deployer.address);
     });
-    // it("has a name", async () => {
-    //   expect(await dappazon.name()).to.equal("Dappazon");
-    // });
+    it("has a name", async () => {
+      expect(await dappazon.name()).to.equal("Eddie");
+    });
   });
 
   describe("Listing", () => {
@@ -49,6 +55,10 @@ describe("Dappazon Testing", () => {
         .connect(deployer)
         .list(ID, NAME, CATEGORY, IMAGE, COST, RATING, STOCK);
       // wait transaction to be completed
+      await transaction.wait();
+
+      transaction = await dappazon.connect(buyer).buy(ID, { value: COST });
+
       await transaction.wait();
     });
 
