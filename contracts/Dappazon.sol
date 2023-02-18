@@ -32,7 +32,6 @@ contract Dappazon {
     // orders[address] = {1: order1, 2: order2, ...}
     mapping(address => mapping(uint256 => Order)) public orders;
 
-
     // Event is an inheritable member of a contract. An event is emitted, it stores the arguments passed in transaction logs.
     // These logs are stored on blockchain and are accessible
     // using address of the contract till the contract is present on the blockchain.
@@ -40,6 +39,7 @@ contract Dappazon {
     // An event can be declared using event keyword.
 
     event List(string name, uint256 cost, uint256 stock);
+    event Buy(address buyer, uint256 orderId, uint256 itemId);
 
     constructor() {
         // msg.sender identifies the address of the person who's calling this
@@ -96,11 +96,23 @@ contract Dappazon {
         // Create an order
         // block.timestamp: epoch time, seconds elapsed since January 1, 1970
 
-        Order memory order = Order(block.timestamp, item)
+        Order memory order = Order(block.timestamp, item);
 
         // save order to chain
 
+        orderCount[msg.sender]++;
+        orders[msg.sender][orderCount[msg.sender]] = order;
+
         // Subtract stock
+
+        items[_id].stock = items[_id].stock - 1;
         // Emit event
+
+        emit Buy(msg.sender, orderCount[msg.sender], item.id);
+    }
+
+    function withdraw() public onlyOwner {
+        (bool success, ) = owner.call{value: address(this).balance}("");
+        require(success);
     }
 }
