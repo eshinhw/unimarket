@@ -13,13 +13,25 @@ import Dappazon from "./abis/Dappazon.json";
 import config from "./config.json";
 
 function App() {
-
-  const [account, setAccount] = useState(null)
+  const [account, setAccount] = useState(null);
+  const [provider, setProvider] = useState(null);
 
   const loadBlockchainData = async () => {
     const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
     const account = ethers.utils.getAddress(accounts[0]);
     setAccount(account);
+
+    // 1. Connect to blockchain
+    // MetaMask turns normal browser into blockchain browser
+    // Same logic, ethers.js turns normal app into blockchain app
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    setProvider(provider);
+    console.log("hello?")
+    const network = await provider.getNetwork()
+    console.log(network)
+    // providing connection to blockchain inside the app
+    // 2. Connect to smart contract
+    // 3. Load products
   };
 
   useEffect(() => {
@@ -28,7 +40,7 @@ function App() {
 
   return (
     <div>
-      <Navigation account={account} setAccount={setAccount}/>
+      <Navigation account={account} setAccount={setAccount} />
       <h2>Welcome to Dappazon!</h2>
       <p>{account}</p>
     </div>
