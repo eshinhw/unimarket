@@ -14,11 +14,11 @@ contract Dappsla {
         uint256 id;
         string vin;
         string model_name;
-        string model_type;
+        string model_class;
         string image;
         uint256 cost;
         uint256 rating;
-        uint256 stock;
+        uint256 inventory;
     }
 
     struct Order {
@@ -30,10 +30,10 @@ contract Dappsla {
     mapping(uint256 => Car) public cars;
     // orderCount[address] = 1
     // what's the address? address of the buyer? address of car?
-    mapping(string => uint256) public orderCount;
+    mapping(address => uint256) public orderCount;
     // uint256 orderCount;
     // orders[model_type] = {1: {order1}, 2: {order2}, ...}
-    mapping(string => mapping(uint256 => Order)) public orders;
+    mapping(address => mapping(uint256 => Order)) public orders;
 
     // Event is an inheritable member of a contract. An event is emitted, it stores the arguments passed in transaction logs.
     // These logs are stored on blockchain and are accessible
@@ -60,13 +60,12 @@ contract Dappsla {
     // List cars
     function list(
         uint256 _id,
-        string memory _vin,
         string memory _model_name,
-        string memory _model_type,
+        string memory _model_class,
         string memory _image,
         uint256 _cost,
         uint256 _rating,
-        uint256 _stock
+        uint256 _inventory
     ) public onlyManufacturer {
         // if true, keep executing codes below
         // if false, stop executing codes at this point
@@ -75,13 +74,12 @@ contract Dappsla {
         // create Item struct using the input parameters
         Car memory car = Car(
             _id,
-            _vin,
             _model_name,
-            _model_type,
+            _model_class,
             _image,
             _cost,
             _rating,
-            _stock
+            _inventory
         );
 
         // Save new Item to blockchain
@@ -90,7 +88,7 @@ contract Dappsla {
 
         // Emit an event
         // What 
-        emit List(_name, _cost, _stock);
+        emit List(_model_name, _cost, _inventory);
     }
 
     function purchase(uint256 _id) public payable {
@@ -104,15 +102,15 @@ contract Dappsla {
 
         // save order to chain
         // same manu
-        orderCount[car.model_name]++;
-        orders[car.model_name][orderCount[car.model_name]] = order;
+        orderCount[msg.sender]++;
+        orders[msg.sender][orderCount[msg.sender]] = order;
 
         // Subtract stock
 
-        cars[_id].stock = cars[_id].stock - 1;
+        cars[_id].inventory = cars[_id].inventory - 1;
         // Emit event
 
-        emit Purchase(msg.sender, orderCount[car.model_name], car.id);
+        emit Purchase(msg.sender, orderCount[msg.sender], car.id);
     }
 
     function withdraw() public onlyManufacturer {
