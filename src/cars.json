@@ -2,8 +2,8 @@
   "items": [
     {
       "id": 1,
-      "name": "Camera",
-      "category": "electronics",
+      "model_name": "Camera",
+      "model_class": "electronics",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/camera.jpg",
       "price": "1",
       "rating": 4,
