@@ -7,14 +7,14 @@ pragma solidity ^0.8.9;
 - It will be responsible for managing orders, distributing items and processing payments between the parties.
 */
 
-contract Dappazon {
-    address public owner;
-    string public name;
+contract Dappsla {
+    address public manufacturer;
 
-    struct Item {
+    struct Car {
         uint256 id;
-        string name;
-        string category;
+        string vin;
+        string model_name;
+        string model_type;
         string image;
         uint256 cost;
         uint256 rating;
@@ -23,14 +23,17 @@ contract Dappazon {
 
     struct Order {
         uint256 time;
-        Item item;
+        Car car;
     }
-    // data structure in solidity?
-    mapping(uint256 => Item) public items;
+    // dictionary data structure in solidity
+    // cars[0] = Car0, cars[1] = Car1
+    mapping(uint256 => Car) public cars;
     // orderCount[address] = 1
-    mapping(address => uint256) public orderCount;
-    // orders[address] = {1: order1, 2: order2, ...}
-    mapping(address => mapping(uint256 => Order)) public orders;
+    // what's the address? address of the buyer? address of car?
+    mapping(string => uint256) public orderCount;
+    // uint256 orderCount;
+    // orders[model_type] = {1: {order1}, 2: {order2}, ...}
+    mapping(string => mapping(uint256 => Order)) public orders;
 
     // Event is an inheritable member of a contract. An event is emitted, it stores the arguments passed in transaction logs.
     // These logs are stored on blockchain and are accessible
@@ -39,40 +42,42 @@ contract Dappazon {
     // An event can be declared using event keyword.
 
     event List(string name, uint256 cost, uint256 stock);
-    event Buy(address buyer, uint256 orderId, uint256 itemId);
+    event Purchase(address buyer, uint256 orderId, uint256 itemId);
 
     constructor() {
         // msg.sender identifies the address of the person who's calling this
-        owner = msg.sender;
-        name = "Eddie";
+        // calling contract constructor means it's the owner of the smart contract?
+        manufacturer = msg.sender;
     }
 
     // custom modifier which can be applied to a function
-    modifier onlyOwner() {
-        require(msg.sender == owner);
+    modifier onlyManufacturer() {
+        require(msg.sender == manufacturer);
         // do this before the function body --> _ represents the function body
         _;
     }
 
-    // List products
+    // List cars
     function list(
         uint256 _id,
-        string memory _name,
-        string memory _category,
+        string memory _vin,
+        string memory _model_name,
+        string memory _model_type,
         string memory _image,
         uint256 _cost,
         uint256 _rating,
         uint256 _stock
-    ) public {
+    ) public onlyManufacturer {
         // if true, keep executing codes below
         // if false, stop executing codes at this point
-        require(msg.sender == owner);
+        // require(msg.sender == owner);
 
         // create Item struct using the input parameters
-        Item memory item = Item(
+        Car memory car = Car(
             _id,
-            _name,
-            _category,
+            _vin,
+            _model_name,
+            _model_type,
             _image,
             _cost,
             _rating,
@@ -81,38 +86,37 @@ contract Dappazon {
 
         // Save new Item to blockchain
         // key-value pair database
-        items[_id] = item;
+        cars[_id] = car;
 
         // Emit an event
-
+        // What 
         emit List(_name, _cost, _stock);
     }
 
-    function buy(uint256 _id) public payable {
+    function purchase(uint256 _id) public payable {
         // Receive crypto can be completed by adding payable modifier
 
         // Fetch an item from the item dictionary
-        Item memory item = items[_id];
+        Car memory car = cars[_id];
         // Create an order
         // block.timestamp: epoch time, seconds elapsed since January 1, 1970
-
-        Order memory order = Order(block.timestamp, item);
+        Order memory order = Order(block.timestamp, car);
 
         // save order to chain
-
-        orderCount[msg.sender]++;
-        orders[msg.sender][orderCount[msg.sender]] = order;
+        // same manu
+        orderCount[car.model_name]++;
+        orders[car.model_name][orderCount[car.model_name]] = order;
 
         // Subtract stock
 
-        items[_id].stock = items[_id].stock - 1;
+        cars[_id].stock = cars[_id].stock - 1;
         // Emit event
 
-        emit Buy(msg.sender, orderCount[msg.sender], item.id);
+        emit Purchase(msg.sender, orderCount[car.model_name], car.id);
     }
 
-    function withdraw() public onlyOwner {
-        (bool success, ) = owner.call{value: address(this).balance}("");
+    function withdraw() public onlyManufacturer {
+        (bool success, ) = manufacturer.call{value: address(this).balance}("");
         require(success);
     }
 }
