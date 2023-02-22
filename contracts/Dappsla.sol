@@ -12,7 +12,6 @@ contract Dappsla {
 
     struct Car {
         uint256 id;
-        string vin;
         string model_name;
         string model_class;
         string image;

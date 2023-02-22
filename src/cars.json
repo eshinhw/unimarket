@@ -7,52 +7,52 @@
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/camera.jpg",
       "price": "1",
       "rating": 4,
-      "stock": 10
+      "inventory": 10
     },
     {
       "id": 2,
       "name": "Model 3",
-      "category": "Sedan",
+      "class": "Sedan",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/drone.jpg",
       "price": "2",
       "rating": 5,
-      "stock": 6
+      "inventory": 6
     },
     {
       "id": 3,
       "name": "Model X",
-      "category": "SUV",
+      "class": "SUV",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/headset.jpg",
       "price": "0.25",
       "rating": 2,
-      "stock": 24
+      "inventory": 24
     },
     {
       "id": 4,
       "name": "Model Y",
-      "category": "SUV",
+      "class": "SUV",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/shoes.jpg",
       "price": "0.25",
       "rating": 5,
-      "stock": 3
+      "inventory": 3
     },
     {
       "id": 5,
       "name": "Cybertruck",
-      "category": "Truck",
+      "class": "Truck",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/sunglasses.jpg",
       "price": "0.10",
       "rating": 4,
-      "stock": 12
+      "inventory": 12
     },
     {
       "id": 6,
       "name": "Powerall",
-      "category": "Battery Storage",
+      "class": "Battery Storage",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
       "price": "1.25",
       "rating": 4,
-      "stock": 0
+      "inventory": 0
     }
   ]
 }
