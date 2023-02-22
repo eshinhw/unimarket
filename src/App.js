@@ -7,10 +7,13 @@ import Section from "./components/Section";
 import Product from "./components/Product";
 
 // ABIs
-import Dappazon from "./abis/Dappazon.json";
+import Dappsla from "./abis/Dappazon.json";
 
 // Config
 import config from "./config.json";
+// import Navbar from "./components/BasicExample";
+import BasicExample from "./components/Navigation";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [account, setAccount] = useState(null);
@@ -40,8 +43,8 @@ function App() {
 
   return (
     <div>
-      <Navigation account={account} setAccount={setAccount} />
-      <h2>Welcome to Dappazon!</h2>
+      <Navigation />
+      <h2>Welcome to Dappsla!</h2>
       <p>{account}</p>
     </div>
   );

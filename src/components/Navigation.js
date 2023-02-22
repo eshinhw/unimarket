@@ -1,17 +1,32 @@
 import { ethers } from "ethers";
 
 const Navigation = ({ account, setAccount }) => {
-
   const connectHandler = () => {
-    console.log("connecting...")
-  }
+    console.log("connecting...");
+  };
   return (
-    <nav>
+    <nav className="nav">
       <div className="nav__brand">
-        <h1>Dappazon</h1>
+        <h1>DAPPSLA</h1>
       </div>
 
-      <input type="text" className="nav__search" />
+      <ul className="nav__links">
+          <li>
+            <a href="#Clothing & Jewelry">Model S</a>
+          </li>
+          <li>
+            <a href="#Clothing & Jewelry">Model 3</a>
+          </li>
+          <li>
+            <a href="#Clothing & Jewelry">Model X</a>
+          </li>
+          <li>
+            <a href="#Clothing & Jewelry">Model Y</a>
+          </li>
+          <li>
+            <a href="#Clothing & Jewelry">Cybertruck</a>
+          </li>
+        </ul>
 
       {account ? (
         <button type="button" className="nav__connect">
@@ -19,17 +34,9 @@ const Navigation = ({ account, setAccount }) => {
         </button>
       ) : (
         <button type="button" className="nav__connect" onClick={connectHandler}>
-          Connect
+          Connect to MetaMask
         </button>
       )}
-
-      <ul className="nav__links">
-        <li>
-          <a href="#Clothing & Jewelry">Clothing & Jewelry</a>
-        </li>
-        <li></li>
-        <li></li>
-      </ul>
     </nav>
   );
 };

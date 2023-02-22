@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lalezar&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+/* @font-face {
+  font-family: 'teslaregular';
+  src: url('tesla-webfont.woff2') format('woff2'),
+       url('tesla-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 
+} */
 * {
   margin: 0;
   padding: 0;
@@ -12,8 +19,9 @@
   --clr-grey: #707070;
   --clr-bunker: #131921;
   --clr-ebony-clay: #232f3e;
-  --clr-orange: #FF9900;
-  --clr-orange-dark: #cc8111;
+  --clr-red: #e82127;
+  --clr-orange-dark: #e82127;
+  --clr-sky-blue: #76b5c5;
 }
 
 body {
@@ -41,14 +49,15 @@ nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-
-  background-color: var(--clr-bunker);
+  /* margin-left: 100px; */
+  background-color: var(--clr-sky-blue);
 }
 
 .nav__brand {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 145px;
 }
 
 .nav__brand img {
@@ -57,22 +66,24 @@ nav {
 }
 
 .nav__brand h1 {
-  color: var(--clr-white);
+  color: var(--clr-black);
   font-family: "Lalezar";
   font-size: 2.5em;
+  margin-top: 8px;
 }
 
 .nav__links {
-  background-color: var(--clr-ebony-clay);
-  grid-column: 1 / span 3;
+  background-color: var(--clr-sky-blue);
+  /* grid-column: 1 / span 3; */
 
   padding: 10px;
-
+  padding-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   list-style: none;
+  margin-left: 200px;
 }
 
 .nav__links li {
@@ -81,7 +92,7 @@ nav {
 
 .nav__links li a {
   text-decoration: none;
-  color: var(--clr-white);
+  color: var(--clr-black);
 }
 
 .nav__links li a:hover {
@@ -99,12 +110,12 @@ nav {
 }
 
 .nav__connect {
-  width: 150px;
+  width: 170px;
   height: 40px;
   margin: 0 auto;
 
-  background-color: var(--clr-orange);
-  color: var(--clr-black);
+  background-color: var(--clr-red);
+  color: var(--clr-white);
 
   border: none;
   border-radius: 4px;
