@@ -3,10 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import teslaX from "../assets/items/Model-X.jpeg";
 
-function DisplayCard({ data }) {
-  console.log("DisplayCard");
-  console.log(data.length);
-
+function CardItem({ data }) {
   return (
     <div>
       <Row>
@@ -32,4 +29,4 @@ function DisplayCard({ data }) {
   );
 }
 
-export default DisplayCard;
+export default CardItem;

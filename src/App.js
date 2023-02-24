@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { ethers } from "ethers";
 
 // Components
 import Navigation from "./components/Navigation";
 import Section from "./components/Section";
-import Product from "./components/Product";
 
 // ABIs
 import UniMarketABI from "./abis/UniMarket.json";
@@ -12,6 +11,12 @@ import UniMarketABI from "./abis/UniMarket.json";
 // Config
 import config from "./config.json";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CategoryPage from "./pages/CategoryPage";
+import { useDispatch } from "react-redux";
+
+export const DataContext = createContext();
 
 export default function App() {
   const [account, setAccount] = useState(null);
@@ -21,6 +26,12 @@ export default function App() {
   const [gadgets, setGadgets] = useState(null);
   const [books, setBooks] = useState(null);
   const [clothing, setClothing] = useState(null);
+  const [items, setItems] = useState(null);
+  const dispatch = useDispatch();
+  const [toggleCar, setToggleCar] = useState(false);
+  const [toggleGadget, setToggleGadget] = useState(false);
+  const [toggleBook, setToggleBook] = useState(false);
+  const [toggleClothing, setToggleClothing] = useState(false);
 
   const loadBlockchainData = async () => {
     const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
@@ -55,6 +66,9 @@ export default function App() {
     }
 
     console.log(items);
+    setItems(items);
+
+    // dispatch({ type: "BLOCKCHAIN_DATA", payload: items });
 
     const cars = items.filter((item) => item.category === "Car");
     const gadgets = items.filter((item) => item.category === "Personal Gadget");
@@ -66,7 +80,7 @@ export default function App() {
     setBooks(books);
     setClothing(clothing);
 
-    
+    console.log(cars);
   };
 
   useEffect(() => {
@@ -75,11 +89,27 @@ export default function App() {
 
   return (
     <div>
-      <Navigation />
-      {cars && <Section title={"Electric Cars"} cars={cars} />}
-      {gadgets && <Section title={"Personal Gadgets"} cars={gadgets} />}
-      {books && <Section title={"Books & Magazines"} cars={books} />}
-      {clothing && <Section title={"Clothing"} cars={clothing} />}
+      {/* <DataContext.Provider value={items}>
+        
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route
+              path="/cars"
+              element={<CategoryPage title={"Automobiles"} data={"hello?"} />}
+            ></Route>
+            <Route path="/gadgets" element={<CategoryPage />}></Route>
+            <Route path="/books-magazines" element={<CategoryPage />}></Route>
+            <Route path="/clothing" element={<CategoryPage />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </DataContext.Provider> */}
+      <Navigation props={[setToggleCar, setToggleGadget, setToggleBook, setToggleClothing]}/>
+      {console.log(toggleCar)}
+      {toggleCar && <Section title={"Automobiles"} cars={cars} setToggle={setToggleCar}/>}
+      {toggleGadget && <Section title={"Personal Gadgets"} cars={gadgets} setToggle={setToggleGadget}/>}
+      {toggleBook && <Section title={"Books & Magazines"} cars={books} setToggle={setToggleBook}/>}
+      {toggleClothing && <Section title={"Clothing"} cars={clothing} setToggle={setToggleClothing}/>}
     </div>
   );
 }
