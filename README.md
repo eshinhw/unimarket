@@ -1,6 +1,6 @@
-# Dappsla: Purcahse Tesla with Crypto
+# UniMarket
 
-You can purchase a brand new Tesla with your crypto in your Chrome browser!
+A decentralized marketplace that uses a set of smart contracts to execute transactions on its website.
 
 ## Technology Stack & Tools
 
