@@ -4,10 +4,10 @@ A decentralized marketplace that uses a set of smart contracts to execute order 
 
 ## Technology Stack & Tools
 
-- [Solidity](https://docs.soliditylang.org/en/v0.8.19/): Writing Smart Contracts & Tests
-- [Hardhat](https://hardhat.org/): Ethereum Development Framework
-- [Ethers.js](https://docs.ethers.io/v5/): Blockchain Interaction in Web App
-- [React.js](https://reactjs.org/): Frontend Framework
+- [Solidity](https://docs.soliditylang.org/en/v0.8.19/): Writing smart contracts & testing
+- [Hardhat](https://hardhat.org/): Ethereum development framework
+- [Ethers.js](https://docs.ethers.io/v5/): Blockchain interaction in Web App
+- [React.js](https://reactjs.org/): Frontend framework
 - [React Redux](https://react-redux.js.org): A pattern and library for managing and updating application state
 
 ## Requirements For Initial Setup
