@@ -7,20 +7,20 @@ import Section from "./components/Section";
 import Product from "./components/Product";
 
 // ABIs
-import DappslaABI from "./abis/Dappsla.json";
+import UniMarketABI from "./abis/UniMarket.json";
 
 // Config
 import config from "./config.json";
-// import Navbar from "./components/BasicExample";
-import BasicExample from "./components/Navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+export default function App() {
   const [account, setAccount] = useState(null);
   const [provider, setProvider] = useState(null);
-  const [dappsla, setDappsla] = useState(null);
-  const [vehicles, setVehicles] = useState(null);
-  const [charging, setCharging] = useState(null);
+  const [unimarket, setUnimarket] = useState(null);
+  const [cars, setCars] = useState(null);
+  const [gadgets, setGadgets] = useState(null);
+  const [books, setBooks] = useState(null);
+  const [clothing, setClothing] = useState(null);
 
   const loadBlockchainData = async () => {
     const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
@@ -36,31 +36,37 @@ function App() {
     console.log(network);
     // providing connection to blockchain inside the app
     // ABI: Abstract Binary Interface
-    const dappsla = new ethers.Contract(
-      config[network.chainId].dappsla.address,
-      DappslaABI,
+    // Connect to smart contract
+    const unimarket = new ethers.Contract(
+      config[network.chainId].unimarket.address,
+      UniMarketABI,
       provider
     );
 
-    setDappsla(dappsla);
-    // 2. Connect to smart contract
-    // 3. Load products
+    setUnimarket(unimarket);
 
-    console.log(dappsla);
-    const cars = [];
-    for (let i = 0; i < 9; i++) {
-      const car = await dappsla.cars(i + 1);
-      cars.push(car);
+    // 3. Load products from smart contract
+
+    const items = [];
+
+    for (let i = 0; i < 16; i++) {
+      const currItem = await unimarket.items(i + 1);
+      items.push(currItem);
     }
 
-    console.log(cars);
-    console.log("helo");
+    console.log(items);
 
-    const vehicles = cars.filter((car) => car.model_class === "Sedan" || car.model_class === "SUV");
-    console.log(vehicles);
-    setVehicles(vehicles);
-    // 2. Connect to smart contract
-    // 3. Load products
+    const cars = items.filter((item) => item.category === "Car");
+    const gadgets = items.filter((item) => item.category === "Personal Gadget");
+    const books = items.filter((item) => item.category === "Books & Magazines");
+    const clothing = items.filter((item) => item.category === "Clothing");
+
+    setCars(cars);
+    setGadgets(gadgets);
+    setBooks(books);
+    setClothing(clothing);
+
+    
   };
 
   useEffect(() => {
@@ -68,15 +74,12 @@ function App() {
   }, []);
 
   return (
-    // <Routes>
-
-
-    // </Routes>
     <div>
       <Navigation />
-      {vehicles && <Section title={"Electric Cars"} cars={vehicles} />}
+      {cars && <Section title={"Electric Cars"} cars={cars} />}
+      {gadgets && <Section title={"Personal Gadgets"} cars={gadgets} />}
+      {books && <Section title={"Books & Magazines"} cars={books} />}
+      {clothing && <Section title={"Clothing"} cars={clothing} />}
     </div>
   );
 }
-
-export default App;
