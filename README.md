@@ -4,7 +4,7 @@ A decentralized marketplace that uses a set of smart contracts to execute order 
 
 ## Technology Stack & Tools
 
-- Solidity: Writing Smart Contracts & Tests
+- [Solidity](https://docs.soliditylang.org/en/v0.8.19/): Writing Smart Contracts & Tests
 - [Hardhat](https://hardhat.org/): Ethereum Development Framework
 - [Ethers.js](https://docs.ethers.io/v5/): Blockchain Interaction in Web App
 - [React.js](https://reactjs.org/): Frontend Framework
