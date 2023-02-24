@@ -1,8 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import teslaX from "../assets/items/Model-X.jpeg"
-
+import teslaX from "../assets/items/Model-X.jpeg";
 
 function DisplayCard({ data }) {
   console.log("DisplayCard");
@@ -11,15 +10,20 @@ function DisplayCard({ data }) {
   return (
     <div>
       <Row>
-        {data.map((car, index) => (
+        {data.map((d, index) => (
           <Col sm={4}>
             <Card style={{ width: "20rem" }}>
-              <Card.Img variant="top" src={teslaX} />
-              <Card.Body>
-                <Card.Title>{data.model_name}</Card.Title>
+              <Card.Img variant="top" src={d.image} />
+              <Card.Body style={{ marginLeft: "auto", marginRight: "auto" }}>
+                <Card.Title>{d.name}</Card.Title>
                 <Card.Text></Card.Text>
-                <Button variant="primary">Purchase</Button>
               </Card.Body>
+              <Button
+                variant="primary"
+                style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "20px" }}
+              >
+                Purchase
+              </Button>
             </Card>
           </Col>
         ))}

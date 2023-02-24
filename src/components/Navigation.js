@@ -16,7 +16,7 @@ const Navigation = ({ account, setAccount }) => {
           <Nav.Link>BOOKS & MAGAZINES</Nav.Link>
           <Nav.Link>CLOTHING</Nav.Link>
         </Nav>
-        <Button>CONNECT</Button>
+        <Button>CONNECT TO WALLET</Button>
       </Container>
     </Navbar>
 
