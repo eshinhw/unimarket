@@ -6,7 +6,7 @@
 // global scope, and execute the script.
 const { ethers } = require("hardhat");
 const hre = require("hardhat");
-const { testData } = require("../src/testData.json");
+const { data } = require("../src/testData.json");
 
 const tokens = (n) => {
   return ethers.utils.parseUnits(n.toString(), "ether");
@@ -15,26 +15,26 @@ const tokens = (n) => {
 async function main() {
   const [deployer] = await ethers.getSigners();
   const UniMarket = await hre.ethers.getContractFactory("UniMarket");
-  const UniMarketDeployed = await Dappsla.deploy();
+  const UniMarketDeployed = await UniMarket.deploy();
   await UniMarketDeployed.deployed()
 
   console.log(`Deployed UniMarket Contract at: , ${UniMarketDeployed.address}`)
 
   // List cars (Deploy cars onto the blockchain)
-  for (let i = 0; i < testData.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     const transaction = await UniMarketDeployed.connect(deployer).list(
-      testData[i].id,
-      testData[i].name,
-      testData[i].category, 
-      testData[i].image,
+      data[i].id,
+      data[i].name,
+      data[i].category, 
+      data[i].image,
       // convert to tokens
-      tokens(testData[i].price),
-      testData[i].rating,
-      testData[i].inventorytestData
+      tokens(data[i].price),
+      data[i].rating,
+      data[i].inventory
     )
     await transaction.wait()
 
-    console.log(`Listed item ${testData[i].id}: ${testData[i].name}`)
+    console.log(`Listed item ${data[i].id}: ${data[i].name}`)
   }
 
   
