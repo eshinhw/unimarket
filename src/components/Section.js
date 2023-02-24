@@ -1,10 +1,10 @@
 import { ethers } from "ethers";
-import DisplayCard from "./DisplayCard";
+import DisplayCard from "./CardItem";
 
 // Components
 import Rating from "./Rating";
 
-const Section = ({ title, cars }) => {
+const Section = ({ title, cars, setToggle }) => {
   return (
     <div className="cards__section">
       <h3>{title}</h3>
