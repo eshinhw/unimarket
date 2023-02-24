@@ -1,22 +1,17 @@
 # UniMarket
 
-A decentralized marketplace that uses a set of smart contracts to execute transactions on its website.
+A decentralized marketplace that uses a set of smart contracts to execute order transactions and allow crypto payments.
 
 ## Technology Stack & Tools
 
-### Solidity
-Writing Smart Contracts & Tests
-
-### Hardhat
-[Hardhat](https://hardhat.org/) (Development Framework)
-
-### Ethers.js
-[Ethers.js](https://docs.ethers.io/v5/) (Blockchain Interaction)
-
-### React.js
-[React.js](https://reactjs.org/) (Frontend Framework)
+- Solidity: Writing Smart Contracts & Tests
+- [Hardhat](https://hardhat.org/): Ethereum Development Framework
+- [Ethers.js](https://docs.ethers.io/v5/): Blockchain Interaction in Web App
+- [React.js](https://reactjs.org/): Frontend Framework
+- [React Redux](https://react-redux.js.org): A pattern and library for managing and updating application state
 
 ## Requirements For Initial Setup
+
 - Install [NodeJS](https://nodejs.org/en/)
 
 ## Setting Up
