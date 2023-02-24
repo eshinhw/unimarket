@@ -8,11 +8,11 @@ const Navigation = ({ account, setAccount }) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Nav.Link href="/" style={{fontSize: "50px"}}>DAAPSLA</Nav.Link>
+        <Nav.Link href="/" style={{fontSize: "50px"}}>UniMarket</Nav.Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Nav style={{ marginRight: "15px" }} className="justify-content-center">
           <Nav.Link>ELECTRIC CARS</Nav.Link>
-          <Nav.Link>ELECTRIC GADGETS</Nav.Link>
+          <Nav.Link>PERSONAL GADGETS</Nav.Link>
           <Nav.Link>BOOKS & MAGAZINES</Nav.Link>
           <Nav.Link>CLOTHING</Nav.Link>
         </Nav>

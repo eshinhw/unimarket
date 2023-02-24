@@ -68,14 +68,14 @@ function App() {
   }, []);
 
   return (
-    <Routes>
+    // <Routes>
 
 
-    </Routes>
-    // <div>
-    //   <Navigation />
-    //   {vehicles && <Section title={"Electric Cars"} cars={vehicles} />}
-    // </div>
+    // </Routes>
+    <div>
+      <Navigation />
+      {vehicles && <Section title={"Electric Cars"} cars={vehicles} />}
+    </div>
   );
 }
 

@@ -1,0 +1,148 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Tesla Model S",
+      "category": "Car",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/camera.jpg",
+      "price": "1",
+      "rating": 4,
+      "inventory": 10
+    },
+    {
+      "id": 2,
+      "name": "Tesla Model 3",
+      "category": "Car",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/drone.jpg",
+      "price": "2",
+      "rating": 5,
+      "inventory": 6
+    },
+    {
+      "id": 3,
+      "name": "Tesla Model X",
+      "category": "Car",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/headset.jpg",
+      "price": "0.25",
+      "rating": 2,
+      "inventory": 24
+    },
+    {
+      "id": 4,
+      "name": "Tesla Model Y",
+      "category": "Car",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/shoes.jpg",
+      "price": "0.25",
+      "rating": 5,
+      "inventory": 3
+    },
+    {
+      "id": 5,
+      "name": "Tesla Cybertruck",
+      "category": "Car",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/sunglasses.jpg",
+      "price": "0.10",
+      "rating": 4,
+      "inventory": 12
+    },
+    {
+      "id": 6,
+      "name": "Nikon N750",
+      "category": "Personal Gadget",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    },
+    {
+      "id": 7,
+      "name": "Sony Headphone",
+      "category": "Personal Gadget",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    },
+    {
+      "id": 8,
+      "name": "AI Drone",
+      "category": "Personal Gadget",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    },
+    {
+      "id": 9,
+      "name": "Brown Shaver",
+      "category": "Personal Gadget",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    },
+    {
+      "id": 10,
+      "name": "National Geographic",
+      "category": "Books & Magazines",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    },
+    {
+      "id": 11,
+      "name": "Reader's Digest",
+      "category": "Books & Magazines",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    },
+    {
+      "id": 12,
+      "name": "Twilight",
+      "category": "Books & Magazines",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    },
+    {
+      "id": 13,
+      "name": "Harry Potter and the Deathly Hallows",
+      "category": "Books & Magazines",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    },
+    {
+      "id": 14,
+      "name": "Gucci Jacket",
+      "category": "Clothing",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    },
+    {
+      "id": 15,
+      "name": "Canada Goose Outwear",
+      "category": "Clothing",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    },
+    {
+      "id": 16,
+      "name": "Nike Hoodie",
+      "category": "Clothing",
+      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "price": "1.25",
+      "rating": 4,
+      "inventory": 20
+    }
+  ]
+}
