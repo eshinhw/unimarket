@@ -15,6 +15,7 @@ import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
 import { useDispatch } from "react-redux";
+import CarouselItems from "./components/CarouselItems";
 
 export const DataContext = createContext();
 
@@ -27,11 +28,11 @@ export default function App() {
   const [books, setBooks] = useState(null);
   const [clothing, setClothing] = useState(null);
   const [items, setItems] = useState(null);
-  const dispatch = useDispatch();
   const [toggleCar, setToggleCar] = useState(false);
   const [toggleGadget, setToggleGadget] = useState(false);
   const [toggleBook, setToggleBook] = useState(false);
   const [toggleClothing, setToggleClothing] = useState(false);
+  const [toggleCarousel, setToggleCarousel] = useState(true);
 
   const loadBlockchainData = async () => {
     // const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
@@ -104,9 +105,10 @@ export default function App() {
           </Routes>
         </BrowserRouter>
       </DataContext.Provider> */}
-      <Navigation props={[setToggleCar, setToggleGadget, setToggleBook, setToggleClothing]}/>
+      <Navigation props={[setToggleCar, setToggleGadget, setToggleBook, setToggleClothing, setToggleCarousel]}/>
+      {toggleCarousel && <CarouselItems />}
       {console.log(toggleCar)}
-      {toggleCar && <Section title={"Automobiles"} cars={cars} setToggle={setToggleCar}/>}
+      {toggleCar && <Section title={"Electric Cars"} cars={cars} setToggle={setToggleCar}/>}
       {toggleGadget && <Section title={"Personal Gadgets"} cars={gadgets} setToggle={setToggleGadget}/>}
       {toggleBook && <Section title={"Books & Magazines"} cars={books} setToggle={setToggleBook}/>}
       {toggleClothing && <Section title={"Clothing"} cars={clothing} setToggle={setToggleClothing}/>}
