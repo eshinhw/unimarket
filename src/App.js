@@ -34,9 +34,9 @@ export default function App() {
   const [toggleClothing, setToggleClothing] = useState(false);
 
   const loadBlockchainData = async () => {
-    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-    const account = ethers.utils.getAddress(accounts[0]);
-    setAccount(account);
+    // const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+    // const account = ethers.utils.getAddress(accounts[0]);
+    // setAccount(account);
 
     // 1. Connect to blockchain
     // MetaMask turns normal browser into blockchain browser
