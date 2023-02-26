@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 function CardItem({ data }) {
   const [show, setShow] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const [order, setOrder] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -83,6 +84,23 @@ function CardItem({ data }) {
                     </Container>
                   </Modal.Body>
                   <Modal.Footer>
+                    {order ? (
+                      <div>
+                        Item bought on{" "}
+                        <strong>
+                          {new Date(Number(order.time.toString() + "000")).toLocaleDateString(
+                            undefined,
+                            {
+                              weekday: "long",
+                              month: "long",
+                              day: "numeric",
+                            }
+                          )}
+                        </strong>
+                      </div>
+                    ) : (
+                      <div>Price: {modalData.cost} ETH</div>
+                    )}
                     <Button variant="primary" onClick={buyHandler}>
                       Place Order
                     </Button>
