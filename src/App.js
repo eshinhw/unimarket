@@ -46,6 +46,7 @@ export default function App() {
     setProvider(provider);
     const network = await provider.getNetwork();
     console.log(network);
+    console.log("provider: ", provider);
     // providing connection to blockchain inside the app
     // ABI: Abstract Binary Interface
     // Connect to smart contract
@@ -63,7 +64,7 @@ export default function App() {
 
     for (let i = 0; i < 16; i++) {
       let currItem = await unimarket.items(i + 1);
-      let currItemCopy = {...currItem};
+      let currItemCopy = { ...currItem };
       currItemCopy.cost = ethers.utils.formatUnits(currItem.cost.toString(), "ether");
       items.push(currItemCopy);
     }
@@ -110,14 +111,41 @@ export default function App() {
         props={[setToggleCar, setToggleGadget, setToggleBook, setToggleClothing, setToggleCarousel]}
       />
       {toggleCarousel && <CarouselItems />}
-      {console.log(toggleCar)}
-      {toggleCar && <Section title={"Electric Cars"} cars={cars} setToggle={setToggleCar} />}
-      {toggleGadget && (
-        <Section title={"Personal Gadgets"} cars={gadgets} setToggle={setToggleGadget} />
+      {toggleCar && (
+        <Section
+          title={"Electric Cars"}
+          cars={cars}
+          setToggle={setToggleCar}
+          unimarket={unimarket}
+          provider={provider}
+        />
       )}
-      {toggleBook && <Section title={"Books & Magazines"} cars={books} setToggle={setToggleBook} />}
+      {toggleGadget && (
+        <Section
+          title={"Personal Gadgets"}
+          cars={gadgets}
+          setToggle={setToggleGadget}
+          unimarket={unimarket}
+          provider={provider}
+        />
+      )}
+      {toggleBook && (
+        <Section
+          title={"Books & Magazines"}
+          cars={books}
+          setToggle={setToggleBook}
+          unimarket={unimarket}
+          provider={provider}
+        />
+      )}
       {toggleClothing && (
-        <Section title={"Clothing"} cars={clothing} setToggle={setToggleClothing} />
+        <Section
+          title={"Clothing"}
+          cars={clothing}
+          setToggle={setToggleClothing}
+          unimarket={unimarket}
+          provider={provider}
+        />
       )}
     </div>
   );

@@ -3,7 +3,7 @@ import { Col, Container, Modal, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-function CardItem({ data }) {
+function CardItem({ data, unimarket, provider }) {
   const [show, setShow] = useState(false);
   const [modalData, setModalData] = useState(null);
   const [order, setOrder] = useState(null);
@@ -11,14 +11,25 @@ function CardItem({ data }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const buyHandler = () => {};
+  console.log("unimarket inside CardItem: ", unimarket);
+
+  
+
+  const buyHandler = async () => {
+    const signer = await provider.getSigner();
+    console.log("signer: ", signer);
+    let transaction = unimarket.connect(signer).purchase(modalData.id, { value: Number(modalData.cost) });
+    console.log(transaction)
+    await transaction.wait();
+    console.log(transaction);
+  };
 
   return (
     <div>
       <Row>
         {data.map((d, index) => (
           <Col sm={4}>
-            <Card style={{ width: "20rem" }}>
+            <Card style={{ width: "20rem" }} key={index}>
               <Card.Img variant="top" src={d.image} />
               <Card.Body style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <Card.Title>{d.name}</Card.Title>
