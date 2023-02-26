@@ -6,7 +6,7 @@ import teslaX from '../assets/items/Model-X.jpeg'
 function CarouselItems() {
   return (
     <Carousel style={{width: "1200px", marginLeft: "auto", marginRight: "auto", marginTop: "20px"}}>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={2500}>
         <img
           className="d-block w-100"
           src={teslaS}
@@ -16,7 +16,7 @@ function CarouselItems() {
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={2500}>
       <img
           className="d-block w-100"
           src={teslaS}
