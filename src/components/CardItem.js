@@ -10,6 +10,8 @@ function CardItem({ data }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const buyHandler = () => {};
+
   return (
     <div>
       <Row>
@@ -31,44 +33,67 @@ function CardItem({ data }) {
               >
                 Purchase
               </Button>
-              {show ? (<Modal size="xl" show={show} onHide={handleClose} index={index}>
-                <Modal.Header closeButton>
-                  <Modal.Title>{modalData.name}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <Container>
-                    <Row>
-                      <Col>
-                        <img
-                          src={modalData.image}
-                          style={{ display: "block", margin: "auto" }}
-                        ></img>
-                      </Col>
-                      <Col>
-                        <div>
-                          <p style={{ fontSize: "20px" }}>
-                            <h1 style={{ display: "inline", fontSize: "25px" }}>Price: </h1>{" "}
-                            {modalData.cost} ETH
-                          </p>
-                          <p style={{ fontSize: "20px" }}>
-                            <h1 style={{ display: "inline", fontSize: "25px" }}>Inventory: </h1>{" "}
-                            {modalData.inventory.toNumber()}
-                          </p>
-                        </div>
-                      </Col>
-                    </Row>
-                  </Container>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="primary" onClick={handleClose}>
-                    Place Order
-                  </Button>
-                  <Button variant="secondary" onClick={handleClose}>
-                    Close
-                  </Button>
-                </Modal.Footer>
-              </Modal>) : (<></>)}
-              
+              {show ? (
+                <Modal size="xl" show={show} onHide={handleClose} index={index}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>{modalData.name}</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <Container>
+                      <Row>
+                        <Col>
+                          <img
+                            src={modalData.image}
+                            style={{ display: "block", margin: "auto" }}
+                          ></img>
+                        </Col>
+                        <Col>
+                          <div style={{ fontSize: "20px" }}>
+                            <p>
+                              <strong>{modalData.name}</strong>
+                            </p>
+                            <p>
+                              <h1 style={{ display: "inline", fontSize: "25px" }}>Price: </h1>{" "}
+                              {modalData.cost} ETH
+                            </p>
+
+                            {d.inventory > 0 ? <p>In Stock.</p> : <p>Sold Out.</p>}
+
+                            <p>
+                              FREE DELIVERY
+                              <br />
+                              <strong>
+                                {new Date(Date.now() + 345600000).toLocaleDateString(undefined, {
+                                  weekday: "long",
+                                  month: "long",
+                                  day: "numeric",
+                                })}
+                              </strong>
+                            </p>
+                            <div style={{ fontSize: "12px" }}>
+                              <p>
+                                Ship from UniMarket
+                                <br />
+                                Sold by UniMarket
+                              </p>
+                            </div>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="primary" onClick={buyHandler}>
+                      Place Order
+                    </Button>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              ) : (
+                <></>
+              )}
             </Card>
           </Col>
         ))}
