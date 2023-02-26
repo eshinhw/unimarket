@@ -53,11 +53,11 @@ function CardItem({ data }) {
                     alt="Star"
                   />
                 </div>
-                <p style={{ textAlign: "center", marginTop: "20px", fontSize: "15px" }}>{d.cost} ETH</p>
+                <p style={{ textAlign: "center", marginTop: "10px", marginBottom: "10px", fontSize: "18px" }}>{d.cost} ETH</p>
               </Card.Body>
               <Button
                 variant="primary"
-                style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "20px" }}
+                style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "10px" }}
                 onClick={() => {
                   setModalData(d);
                   handleShow();
