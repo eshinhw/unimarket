@@ -19,7 +19,9 @@ function CardItem({ data }) {
           <Col sm={4}>
             <Card style={{ width: "20rem" }}>
               <Card.Img variant="top" src={d.image} />
-              <Card.Title style={{ textAlign: "center", marginTop: "20px", fontSize: "20px"  }}><b>{d.name}</b></Card.Title>
+              <Card.Title style={{ textAlign: "center", marginTop: "20px", fontSize: "20px" }}>
+                <b>{d.name}</b>
+              </Card.Title>
               <Card.Body style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <div>
                   <img
@@ -53,7 +55,16 @@ function CardItem({ data }) {
                     alt="Star"
                   />
                 </div>
-                <p style={{ textAlign: "center", marginTop: "10px", marginBottom: "10px", fontSize: "18px" }}>{d.cost} ETH</p>
+                <p
+                  style={{
+                    textAlign: "center",
+                    marginTop: "10px",
+                    marginBottom: "10px",
+                    fontSize: "18px",
+                  }}
+                >
+                  {d.cost} ETH
+                </p>
               </Card.Body>
               <Button
                 variant="primary"
@@ -79,15 +90,20 @@ function CardItem({ data }) {
                             style={{ display: "block", margin: "auto" }}
                           ></img>
                         </Col>
-                        <Col>
+                        <Col style={{ fontSize: "20px" }}>
                           <div>
-                            <p style={{ fontSize: "20px" }}>
+                            <p>
                               <h1 style={{ display: "inline", fontSize: "25px" }}>Price: </h1>{" "}
                               {modalData.cost} ETH
                             </p>
-                            <p style={{ fontSize: "20px" }}>
+                            <p>
                               <h1 style={{ display: "inline", fontSize: "25px" }}>Inventory: </h1>{" "}
                               {modalData.inventory.toNumber()}
+                            </p>
+                            <p>
+                              <h1 style={{ display: "inline", fontSize: "25px" }}>
+                                Product Details:{" "}
+                              </h1>{" "}
                             </p>
                           </div>
                         </Col>
