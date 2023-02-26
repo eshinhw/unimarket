@@ -4,20 +4,12 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 function CardItem({ data }) {
-  const [toggleProduct, setToggleProduct] = useState(false);
   const [show, setShow] = useState(false);
   const [modalData, setModalData] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(data);
-
-  const onClickHandler = (d) => {
-    console.log("Ordering...");
-    // window.alert("Order starts")
-    console.log(d);
-  };
   return (
     <div>
       <Row>
@@ -59,7 +51,7 @@ function CardItem({ data }) {
                             {modalData.cost} ETH
                           </p>
                           <p style={{ fontSize: "20px" }}>
-                            <h1 style={{ display: "inline", fontSize: "25px" }}>Inventory in: </h1>{" "}
+                            <h1 style={{ display: "inline", fontSize: "25px" }}>Inventory: </h1>{" "}
                             {modalData.inventory.toNumber()}
                           </p>
                         </div>
