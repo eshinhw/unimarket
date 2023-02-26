@@ -3,11 +3,10 @@ import { Col, Container, Modal, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-
-
 function CardItem({ data }) {
   const [toggleProduct, setToggleProduct] = useState(false);
   const [show, setShow] = useState(false);
+  const [modalData, setModalData] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -33,34 +32,51 @@ function CardItem({ data }) {
               <Button
                 variant="primary"
                 style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "20px" }}
-                onClick={handleShow}
+                onClick={() => {
+                  setModalData(d);
+                  handleShow();
+                }}
               >
                 Purchase
               </Button>
-              <Modal size="xl" show={show} onHide={handleClose}>
+              {show ? (<Modal size="xl" show={show} onHide={handleClose} index={index}>
                 <Modal.Header closeButton>
-                  <Modal.Title>{d.name}</Modal.Title>
+                  <Modal.Title>{modalData.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <Container>
                     <Row>
                       <Col>
-                        <img src={d.image}></img>
+                        <img
+                          src={modalData.image}
+                          style={{ display: "block", margin: "auto" }}
+                        ></img>
                       </Col>
-                      <Col>Inventory: {d.inventory.toNumber()}
-                      Price: {d.cost}</Col>
+                      <Col>
+                        <div>
+                          <p style={{ fontSize: "20px" }}>
+                            <h1 style={{ display: "inline", fontSize: "25px" }}>Price: </h1>{" "}
+                            {modalData.cost} ETH
+                          </p>
+                          <p style={{ fontSize: "20px" }}>
+                            <h1 style={{ display: "inline", fontSize: "25px" }}>Inventory in: </h1>{" "}
+                            {modalData.inventory.toNumber()}
+                          </p>
+                        </div>
+                      </Col>
                     </Row>
                   </Container>
                 </Modal.Body>
                 <Modal.Footer>
+                  <Button variant="primary" onClick={handleClose}>
+                    Place Order
+                  </Button>
                   <Button variant="secondary" onClick={handleClose}>
                     Close
                   </Button>
-                  <Button variant="primary" onClick={handleClose}>
-                    Submit Order
-                  </Button>
                 </Modal.Footer>
-              </Modal>
+              </Modal>) : (<></>)}
+              
             </Card>
           </Col>
         ))}

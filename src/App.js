@@ -62,8 +62,10 @@ export default function App() {
     const items = [];
 
     for (let i = 0; i < 16; i++) {
-      const currItem = await unimarket.items(i + 1);
-      items.push(currItem);
+      let currItem = await unimarket.items(i + 1);
+      let currItemCopy = {...currItem};
+      currItemCopy.cost = ethers.utils.formatUnits(currItem.cost.toString(), "ether");
+      items.push(currItemCopy);
     }
 
     console.log(items);
@@ -77,11 +79,10 @@ export default function App() {
     const clothing = items.filter((item) => item.category === "Clothing");
 
     setCars(cars);
+    console.log("cars", cars);
     setGadgets(gadgets);
     setBooks(books);
     setClothing(clothing);
-
-    console.log(cars);
   };
 
   useEffect(() => {
@@ -105,13 +106,19 @@ export default function App() {
           </Routes>
         </BrowserRouter>
       </DataContext.Provider> */}
-      <Navigation props={[setToggleCar, setToggleGadget, setToggleBook, setToggleClothing, setToggleCarousel]}/>
+      <Navigation
+        props={[setToggleCar, setToggleGadget, setToggleBook, setToggleClothing, setToggleCarousel]}
+      />
       {toggleCarousel && <CarouselItems />}
       {console.log(toggleCar)}
-      {toggleCar && <Section title={"Electric Cars"} cars={cars} setToggle={setToggleCar}/>}
-      {toggleGadget && <Section title={"Personal Gadgets"} cars={gadgets} setToggle={setToggleGadget}/>}
-      {toggleBook && <Section title={"Books & Magazines"} cars={books} setToggle={setToggleBook}/>}
-      {toggleClothing && <Section title={"Clothing"} cars={clothing} setToggle={setToggleClothing}/>}
+      {toggleCar && <Section title={"Electric Cars"} cars={cars} setToggle={setToggleCar} />}
+      {toggleGadget && (
+        <Section title={"Personal Gadgets"} cars={gadgets} setToggle={setToggleGadget} />
+      )}
+      {toggleBook && <Section title={"Books & Magazines"} cars={books} setToggle={setToggleBook} />}
+      {toggleClothing && (
+        <Section title={"Clothing"} cars={clothing} setToggle={setToggleClothing} />
+      )}
     </div>
   );
 }
