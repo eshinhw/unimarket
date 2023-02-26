@@ -6,7 +6,8 @@
 // global scope, and execute the script.
 const { ethers } = require("hardhat");
 const hre = require("hardhat");
-const { cars } = require("../src/cars.json");
+const { data } = require("../src/testData.json");
+const fs = require("fs");
 
 const tokens = (n) => {
   return ethers.utils.parseUnits(n.toString(), "ether");
@@ -14,32 +15,39 @@ const tokens = (n) => {
 
 async function main() {
   const [deployer] = await ethers.getSigners();
-  const Dappsla = await hre.ethers.getContractFactory("Dappsla");
-  const dappsla = await Dappsla.deploy();
-  await dappsla.deployed()
+  const UniMarket = await hre.ethers.getContractFactory("UniMarket");
+  const UniMarketDeployed = await UniMarket.deploy();
+  await UniMarketDeployed.deployed();
 
-  console.log(`Deployed Dappsla Contract at: , ${dappsla.address}`)
-  console.log(cars)
-  console.log(cars[0].id)
+  console.log(`Deployed UniMarket Contract at: , ${UniMarketDeployed.address}`);
+
   // List cars (Deploy cars onto the blockchain)
-
-  for (let i = 0; i < cars.length; i++) {
-    const transaction = await dappsla.connect(deployer).list(
-      cars[i].id,
-      cars[i].name,
-      cars[i].class, 
-      cars[i].image,
+  for (let i = 0; i < data.length; i++) {
+    const transaction = await UniMarketDeployed.connect(deployer).list(
+      data[i].id,
+      data[i].name,
+      data[i].category,
+      data[i].image,
       // convert to tokens
-      tokens(cars[i].price),
-      cars[i].rating,
-      cars[i].inventory
-    )
-    await transaction.wait()
+      tokens(data[i].price),
+      data[i].rating,
+      data[i].inventory
+    );
+    await transaction.wait();
 
-    console.log(`Listed car ${cars[i].id}: ${cars[i].name}`)
+    console.log(`Listed item ${data[i].id}: ${data[i].name}`);
   }
 
-  
+  // const configData = fs.readFile("~/Desktop/unimarket/src/config.json", "utf-8", (err, jsonString) => {
+  //   if (err) {
+  //     console.log("File read failed: ", err)
+  //     return;
+  //   } 
+  //   console.log(jsonString)
+  // });
+  // console.log(configData);
+
+  // config[31337].unimarket.address = UniMarketDeployed.address;
 }
 
 // We recommend this pattern to be able to use async/await everywhere
