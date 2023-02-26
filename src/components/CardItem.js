@@ -1,19 +1,24 @@
 import { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Modal, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import teslaX from "../assets/items/Model-X.jpeg";
-import Product from "./Product";
+
+
 
 function CardItem({ data }) {
   const [toggleProduct, setToggleProduct] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  console.log(data);
 
   const onClickHandler = (d) => {
-    console.log("Ordering...")
+    console.log("Ordering...");
     // window.alert("Order starts")
-    console.log(d)
-    
-  }
+    console.log(d);
+  };
   return (
     <div>
       <Row>
@@ -28,10 +33,34 @@ function CardItem({ data }) {
               <Button
                 variant="primary"
                 style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "20px" }}
-                onClick={(e) => {onClickHandler(d)}}
+                onClick={handleShow}
               >
                 Purchase
               </Button>
+              <Modal size="xl" show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>{d.name}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <Container>
+                    <Row>
+                      <Col>
+                        <img src={d.image}></img>
+                      </Col>
+                      <Col>Inventory: {d.inventory.toNumber()}
+                      Price: {d.cost}</Col>
+                    </Row>
+                  </Container>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                  <Button variant="primary" onClick={handleClose}>
+                    Submit Order
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </Card>
           </Col>
         ))}
