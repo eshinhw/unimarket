@@ -11,10 +11,6 @@ import UniMarketABI from "./abis/UniMarket.json";
 // Config
 import config from "./config.json";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import CategoryPage from "./pages/CategoryPage";
-import { useDispatch } from "react-redux";
 import CarouselItems from "./components/CarouselItems";
 
 export const DataContext = createContext();
@@ -35,9 +31,9 @@ export default function App() {
   const [toggleCarousel, setToggleCarousel] = useState(true);
 
   const loadBlockchainData = async () => {
-    // const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-    // const account = ethers.utils.getAddress(accounts[0]);
-    // setAccount(account);
+    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+    const account = ethers.utils.getAddress(accounts[0]);
+    setAccount(account);
 
     // 1. Connect to blockchain
     // MetaMask turns normal browser into blockchain browser
@@ -45,7 +41,8 @@ export default function App() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     setProvider(provider);
     const network = await provider.getNetwork();
-    console.log(network);
+    // console.log(network);
+    // console.log("provider: ", provider);
     // providing connection to blockchain inside the app
     // ABI: Abstract Binary Interface
     // Connect to smart contract
@@ -63,12 +60,12 @@ export default function App() {
 
     for (let i = 0; i < 16; i++) {
       let currItem = await unimarket.items(i + 1);
-      let currItemCopy = {...currItem};
+      let currItemCopy = { ...currItem };
       currItemCopy.cost = ethers.utils.formatUnits(currItem.cost.toString(), "ether");
       items.push(currItemCopy);
     }
 
-    console.log(items);
+    // console.log(items);
     setItems(items);
 
     // dispatch({ type: "BLOCKCHAIN_DATA", payload: items });
@@ -79,7 +76,7 @@ export default function App() {
     const clothing = items.filter((item) => item.category === "Clothing");
 
     setCars(cars);
-    console.log("cars", cars);
+    // console.log("cars", cars);
     setGadgets(gadgets);
     setBooks(books);
     setClothing(clothing);
@@ -107,17 +104,48 @@ export default function App() {
         </BrowserRouter>
       </DataContext.Provider> */}
       <Navigation
-        props={[setToggleCar, setToggleGadget, setToggleBook, setToggleClothing, setToggleCarousel]}
+        props={[setToggleCar, setToggleGadget, setToggleBook, setToggleClothing, setToggleCarousel, account]}
       />
       {toggleCarousel && <CarouselItems />}
-      {console.log(toggleCar)}
-      {toggleCar && <Section title={"Electric Cars"} cars={cars} setToggle={setToggleCar} />}
-      {toggleGadget && (
-        <Section title={"Personal Gadgets"} cars={gadgets} setToggle={setToggleGadget} />
+      {toggleCar && (
+        <Section
+          title={"Electric Cars"}
+          cars={cars}
+          setToggle={setToggleCar}
+          unimarket={unimarket}
+          provider={provider}
+          account={account}
+        />
       )}
-      {toggleBook && <Section title={"Books & Magazines"} cars={books} setToggle={setToggleBook} />}
+      {toggleGadget && (
+        <Section
+          title={"Personal Gadgets"}
+          cars={gadgets}
+          setToggle={setToggleGadget}
+          unimarket={unimarket}
+          provider={provider}
+          account={account}
+        />
+      )}
+      {toggleBook && (
+        <Section
+          title={"Books & Magazines"}
+          cars={books}
+          setToggle={setToggleBook}
+          unimarket={unimarket}
+          provider={provider}
+          account={account}
+        />
+      )}
       {toggleClothing && (
-        <Section title={"Clothing"} cars={clothing} setToggle={setToggleClothing} />
+        <Section
+          title={"Clothing"}
+          cars={clothing}
+          setToggle={setToggleClothing}
+          unimarket={unimarket}
+          provider={provider}
+          account={account}
+        />
       )}
     </div>
   );

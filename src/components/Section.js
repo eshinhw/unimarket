@@ -1,22 +1,14 @@
-import { ethers } from "ethers";
-import DisplayCard from "./CardItem";
+import CardItem from "./CardItem";
 
-// Components
-import Rating from "./Rating";
-
-const Section = ({ title, cars, setToggle }) => {
+const Section = ({ title, cars, setToggle, unimarket, provider, account }) => {
+  console.log("provider inside Section: ", provider);
   return (
     <div className="cards__section">
       <h3>{title}</h3>
       <hr />
-      <DisplayCard data={cars} />
+      <CardItem data={cars} unimarket={unimarket} provider={provider} account={account} />
     </div>
   );
 };
 
 export default Section;
-
-{
-  /* <Rating value={car.rating} /> */
-}
-// <p>{ethers.utils.formatUnits(car.cost.toString(), "ether")} ETH</p>

@@ -1,23 +1,62 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Container, Modal, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import star_regular from "../assets/star-regular.svg";
 import star_solid from "../assets/star-solid.svg";
 
-function CardItem({ data }) {
+function CardItem({ data, unimarket, provider, account }) {
   const [show, setShow] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const [order, setOrder] = useState(null);
+  const [hasPurchased, setHasPurchased] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setModalData(null);
+    setOrder(null);
+  };
   const handleShow = () => setShow(true);
+
+  console.log("unimarket inside CardItem: ", unimarket);
+
+  const fetchOrderDetails = async () => {
+    // query all events
+    if (modalData === null) return;
+    const events = await unimarket.queryFilter("Purchase");
+    console.log("events: ", events);
+    const orders = events.filter(
+      (event) =>
+        event.args.buyer === account && event.args.itemId.toString() === modalData.id.toString()
+    );
+
+    console.log("orders: ", orders);
+
+    if (orders.length === 0) return;
+
+    const order = await unimarket.orders(account, orders[0].args.orderId);
+    setOrder(order);
+  };
+
+  const buyHandler = async () => {
+    const signer = await provider.getSigner();
+    console.log("signer: ", signer);
+    let transaction = unimarket
+      .connect(signer)
+      .purchase(modalData.id, { value: Number(modalData.cost) });
+    await transaction.wait();
+  };
+
+  useEffect(() => {
+    fetchOrderDetails();
+  }, [hasPurchased, modalData]);
 
   return (
     <div>
       <Row>
         {data.map((d, index) => (
           <Col sm={4}>
-            <Card style={{ width: "20rem" }}>
+            <Card style={{ width: "20rem" }} key={index}>
               <Card.Img variant="top" src={d.image} />
               <Card.Title style={{ textAlign: "center", marginTop: "20px", fontSize: "20px" }}>
                 <b>{d.name}</b>

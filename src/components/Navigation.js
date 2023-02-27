@@ -1,16 +1,10 @@
-import { ethers } from "ethers";
-import { useState } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 
 const Navigation = ({ props }) => {
-  const [account, setAccount] = useState(null);
+  const account = props[5];
   const connectHandler = async () => {
     console.log("connecting...");
-    try {
-      const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-      const account = ethers.utils.getAddress(accounts[0]);
-      setAccount(account);
-    } catch (err) {
+    if (account === null) {
       window.alert("Please set up MetaMask on your Chrome.");
     }
   };
@@ -62,12 +56,12 @@ const Navigation = ({ props }) => {
           <Nav.Link onClick={(e) => handleOnClick(e)}>CLOTHING</Nav.Link>
         </Nav>
         {account ? (
-            <Button onClick={connectHandler}>
-              {account.slice(0, 5) + "..." + account.slice(38, 42)}
-            </Button>
-          ) : (
-            <Button onClick={connectHandler}>CONNECT TO METAMASK</Button>
-          )}
+          <Button onClick={connectHandler}>
+            {account.slice(0, 5) + "..." + account.slice(38, 42)}
+          </Button>
+        ) : (
+          <Button onClick={connectHandler}>CONNECT TO METAMASK</Button>
+        )}
       </Container>
     </Navbar>
 
