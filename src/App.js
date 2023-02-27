@@ -23,7 +23,7 @@ export default function App() {
   const [gadgets, setGadgets] = useState(null);
   const [books, setBooks] = useState(null);
   const [clothing, setClothing] = useState(null);
-  const [items, setItems] = useState(null);
+  // const [items, setItems] = useState(null);
   const [toggleCar, setToggleCar] = useState(false);
   const [toggleGadget, setToggleGadget] = useState(false);
   const [toggleBook, setToggleBook] = useState(false);

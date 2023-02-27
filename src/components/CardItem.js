@@ -15,6 +15,7 @@ function CardItem({ data, unimarket, provider, account }) {
     setShow(false);
     setModalData(null);
     setOrder(null);
+    setHasPurchased(false);
   };
   const handleShow = () => setShow(true);
 
@@ -127,6 +128,7 @@ function CardItem({ data, unimarket, provider, account }) {
                           <img
                             src={modalData.image}
                             style={{ display: "block", margin: "auto" }}
+                            alt="Modal"
                           ></img>
                         </Col>
                         <Col style={{ fontSize: "20px" }}>
