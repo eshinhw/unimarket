@@ -9,9 +9,7 @@ const Navigation = ({ props }) => {
     }
   };
 
-  const logoutHandler = () => {
-
-  }
+  const logoutHandler = () => {};
 
   const handleOnClick = (e) => {
     const currText = e.target.innerText;
@@ -62,10 +60,14 @@ const Navigation = ({ props }) => {
           </Nav>
           {account ? (
             <>
-              <Button onClick={logoutHandler}>Logout</Button>
-              <Button onClick={connectHandler}>
-                {account.slice(0, 5) + "..." + account.slice(38, 42)}
-              </Button>
+              <div>
+                <Button onClick={logoutHandler} style={{ marginRight: "15px" }}>
+                  Logout
+                </Button>
+                <Button onClick={connectHandler}>
+                  {account.slice(0, 5) + "..." + account.slice(38, 42)}
+                </Button>
+              </div>
             </>
           ) : (
             <Button onClick={connectHandler}>CONNECT TO METAMASK</Button>
