@@ -104,7 +104,14 @@ export default function App() {
         </BrowserRouter>
       </DataContext.Provider> */}
       <Navigation
-        props={[setToggleCar, setToggleGadget, setToggleBook, setToggleClothing, setToggleCarousel, account]}
+        props={[
+          setToggleCar,
+          setToggleGadget,
+          setToggleBook,
+          setToggleClothing,
+          setToggleCarousel,
+          account,
+        ]}
       />
       {toggleCarousel && <CarouselItems />}
       {toggleCar && (
