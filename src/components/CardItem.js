@@ -131,18 +131,25 @@ function CardItem({ data, unimarket, provider, account }) {
                         </Col>
                         <Col style={{ fontSize: "20px" }}>
                           <div>
+                            <p style={{ fontSize: "40px" }}>{modalData.name}</p>
                             <p>
-                              <h1 style={{ display: "inline", fontSize: "25px" }}>Price: </h1>{" "}
-                              {modalData.cost} ETH
+                              FREE delivery <br />
+                              <strong>
+                                {new Date(Date.now() + 345600000).toLocaleDateString(undefined, {
+                                  weekday: "long",
+                                  month: "long",
+                                  day: "numeric",
+                                })}
+                              </strong>
                             </p>
+
+                            {modalData.inventory > 0 ? <p>In Stock.</p> : <p>Out of Stock.</p>}
+
                             <p>
-                              <h1 style={{ display: "inline", fontSize: "25px" }}>Inventory: </h1>{" "}
-                              {modalData.inventory.toNumber()}
-                            </p>
-                            <p>
-                              <h1 style={{ display: "inline", fontSize: "25px" }}>
-                                Product Details:{" "}
-                              </h1>{" "}
+                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima rem,
+                              iusto, consectetur inventore quod soluta quos qui assumenda aperiam,
+                              eveniet doloribus commodi error modi eaque! Iure repudiandae
+                              temporibus ex? Optio!
                             </p>
                           </div>
                         </Col>
@@ -150,7 +157,25 @@ function CardItem({ data, unimarket, provider, account }) {
                     </Container>
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose}>
+                    {order ? (
+                      <div>
+                        Item bought on <br />
+                        <strong>
+                          {new Date(Number(order.time.toString() + "000")).toLocaleDateString(
+                            undefined,
+                            {
+                              weekday: "long",
+                              hour: "numeric",
+                              minute: "numeric",
+                              second: "numeric",
+                            }
+                          )}
+                        </strong>
+                      </div>
+                    ) : (
+                      <div>Price: {modalData.cost} ETH</div>
+                    )}
+                    <Button variant="primary" onClick={buyHandler}>
                       Place Order
                     </Button>
                     <Button variant="secondary" onClick={handleClose}>
