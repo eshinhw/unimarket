@@ -1,28 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Container, Modal, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-function CardItem({ data, unimarket, provider }) {
+function CardItem({ data, unimarket, provider, account }) {
   const [show, setShow] = useState(false);
   const [modalData, setModalData] = useState(null);
   const [order, setOrder] = useState(null);
+  const [hasPurchased, setHasPurchased] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setModalData(null);
+    setOrder(null);
+  };
   const handleShow = () => setShow(true);
 
   console.log("unimarket inside CardItem: ", unimarket);
 
-  
+  const fetchOrderDetails = async () => {
+    // query all events
+    if (modalData === null) return;
+    const events = await unimarket.queryFilter("Purchase");
+    console.log("events: ", events);
+    const orders = events.filter(
+      (event) =>
+        event.args.buyer === account && event.args.itemId.toString() === modalData.id.toString()
+    );
+
+    console.log("orders: ", orders);
+
+    if (orders.length === 0) return;
+
+    const order = await unimarket.orders(account, orders[0].args.orderId);
+    setOrder(order);
+  };
 
   const buyHandler = async () => {
     const signer = await provider.getSigner();
     console.log("signer: ", signer);
-    let transaction = unimarket.connect(signer).purchase(modalData.id, { value: Number(modalData.cost) });
-    console.log(transaction)
+    let transaction = unimarket
+      .connect(signer)
+      .purchase(modalData.id, { value: Number(modalData.cost) });
     await transaction.wait();
-    console.log(transaction);
   };
+
+  useEffect(() => {
+    fetchOrderDetails();
+  }, [hasPurchased, modalData]);
 
   return (
     <div>
