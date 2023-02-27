@@ -66,9 +66,8 @@ export default function App() {
     }
 
     // console.log(items);
-    setItems(items);
+    // setItems(items);
 
-    // dispatch({ type: "BLOCKCHAIN_DATA", payload: items });
 
     const cars = items.filter((item) => item.category === "Car");
     const gadgets = items.filter((item) => item.category === "Personal Gadget");
@@ -76,7 +75,6 @@ export default function App() {
     const clothing = items.filter((item) => item.category === "Clothing");
 
     setCars(cars);
-    // console.log("cars", cars);
     setGadgets(gadgets);
     setBooks(books);
     setClothing(clothing);
@@ -88,21 +86,6 @@ export default function App() {
 
   return (
     <div>
-      {/* <DataContext.Provider value={items}>
-        
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route
-              path="/cars"
-              element={<CategoryPage title={"Automobiles"} data={"hello?"} />}
-            ></Route>
-            <Route path="/gadgets" element={<CategoryPage />}></Route>
-            <Route path="/books-magazines" element={<CategoryPage />}></Route>
-            <Route path="/clothing" element={<CategoryPage />}></Route>
-          </Routes>
-        </BrowserRouter>
-      </DataContext.Provider> */}
       <Navigation
         props={[
           setToggleCar,

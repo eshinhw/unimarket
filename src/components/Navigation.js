@@ -1,13 +1,17 @@
+import { useState } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 
 const Navigation = ({ props }) => {
   const account = props[5];
   const connectHandler = async () => {
-    console.log("connecting...");
     if (account === null) {
       window.alert("Please set up MetaMask on your Chrome.");
     }
   };
+
+  const logoutHandler = () => {
+
+  }
 
   const handleOnClick = (e) => {
     const currText = e.target.innerText;
@@ -43,38 +47,32 @@ const Navigation = ({ props }) => {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Nav.Link href="/" style={{ fontSize: "50px" }}>
-          UniMarket
-        </Nav.Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Nav style={{ marginRight: "15px" }} className="justify-content-center">
-          <Nav.Link onClick={(e) => handleOnClick(e)}>ELECTRIC CARS</Nav.Link>
-          <Nav.Link onClick={(e) => handleOnClick(e)}>PERSONAL GADGETS</Nav.Link>
-          <Nav.Link onClick={(e) => handleOnClick(e)}>BOOKS & MAGAZINES</Nav.Link>
-          <Nav.Link onClick={(e) => handleOnClick(e)}>CLOTHING</Nav.Link>
-        </Nav>
-        {account ? (
-          <Button onClick={connectHandler}>
-            {account.slice(0, 5) + "..." + account.slice(38, 42)}
-          </Button>
-        ) : (
-          <Button onClick={connectHandler}>CONNECT TO METAMASK</Button>
-        )}
-      </Container>
-    </Navbar>
-
-    //   {account ? (
-    //     <button type="button" className="nav__connect">
-    //       {account.slice(0, 5) + "..." + account.slice(38, 42)}
-    //     </button>
-    //   ) : (
-    //     <button type="button" className="nav__connect" onClick={connectHandler}>
-    //       Connect to MetaMask
-    //     </button>
-    //   )}
-    // </nav>
+    <>
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Nav.Link href="/" style={{ fontSize: "50px" }}>
+            UniMarket
+          </Nav.Link>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Nav style={{ marginRight: "15px" }} className="justify-content-center">
+            <Nav.Link onClick={(e) => handleOnClick(e)}>ELECTRIC CARS</Nav.Link>
+            <Nav.Link onClick={(e) => handleOnClick(e)}>PERSONAL GADGETS</Nav.Link>
+            <Nav.Link onClick={(e) => handleOnClick(e)}>BOOKS & MAGAZINES</Nav.Link>
+            <Nav.Link onClick={(e) => handleOnClick(e)}>CLOTHING</Nav.Link>
+          </Nav>
+          {account ? (
+            <>
+              <Button onClick={logoutHandler}>Logout</Button>
+              <Button onClick={connectHandler}>
+                {account.slice(0, 5) + "..." + account.slice(38, 42)}
+              </Button>
+            </>
+          ) : (
+            <Button onClick={connectHandler}>CONNECT TO METAMASK</Button>
+          )}
+        </Container>
+      </Navbar>
+    </>
   );
 };
 

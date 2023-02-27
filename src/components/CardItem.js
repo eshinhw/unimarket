@@ -132,6 +132,37 @@ function CardItem({ data, unimarket, provider, account }) {
                         <Col style={{ fontSize: "20px" }}>
                           <div>
                             <p style={{ fontSize: "40px" }}>{modalData.name}</p>
+                            <img
+                              src={modalData.rating >= 1 ? star_solid : star_regular}
+                              width="20px"
+                              height="20px"
+                              alt="Star"
+                            />
+                            <img
+                              src={modalData.rating >= 2 ? star_solid : star_regular}
+                              width="20px"
+                              height="20px"
+                              alt="Star"
+                            />
+                            <img
+                              src={modalData.rating >= 3 ? star_solid : star_regular}
+                              width="20px"
+                              height="20px"
+                              alt="Star"
+                            />
+                            <img
+                              src={modalData.rating >= 4 ? star_solid : star_regular}
+                              width="20px"
+                              height="20px"
+                              alt="Star"
+                            />
+                            <img
+                              src={modalData.rating >= 5 ? star_solid : star_regular}
+                              width="20px"
+                              height="20px"
+                              alt="Star"
+                            />
+
                             <p>
                               FREE delivery <br />
                               <strong>
