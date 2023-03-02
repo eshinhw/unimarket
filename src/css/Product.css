@@ -12,6 +12,10 @@
   z-index: 1;
 }
 
+.product > p {
+  font-size: 20px;
+}
+
 .product > img {
   max-height: 100px;
   width: 30%;

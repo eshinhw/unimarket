@@ -93,8 +93,6 @@ export default function App() {
         ]}
       />
       <HomePage />
-      {/* <div style={{backgroundColor: "green", fontSize: "25px", marginTop:"10px", textAlign: "center", paddingLeft: "80px"}}>Welcome to UniMarket!</div> */}
-      {/* {toggleCarousel && <CarouselItems />} */}
       {toggleCar && (
         <Section
           title={"Electric Cars"}
