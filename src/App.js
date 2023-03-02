@@ -11,7 +11,6 @@ import UniMarketABI from "./abis/UniMarket.json";
 // Config
 import config from "./config.json";
 import "bootstrap/dist/css/bootstrap.min.css";
-import CarouselItems from "./components/CarouselItems";
 import HomePage from "./pages/HomePage";
 
 export const DataContext = createContext();
@@ -66,10 +65,6 @@ export default function App() {
       items.push(currItemCopy);
     }
 
-    // console.log(items);
-    // setItems(items);
-
-
     const cars = items.filter((item) => item.category === "Car");
     const gadgets = items.filter((item) => item.category === "Personal Gadget");
     const books = items.filter((item) => item.category === "Books & Magazines");
@@ -98,8 +93,6 @@ export default function App() {
         ]}
       />
       <HomePage />
-      {/* <div style={{backgroundColor: "green", fontSize: "25px", marginTop:"10px", textAlign: "center", paddingLeft: "80px"}}>Welcome to UniMarket!</div> */}
-      {/* {toggleCarousel && <CarouselItems />} */}
       {toggleCar && (
         <Section
           title={"Electric Cars"}
