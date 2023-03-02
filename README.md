@@ -2,6 +2,9 @@
 
 A decentralized marketplace that uses a set of smart contracts to execute order transactions and allow crypto payments.
 
+
+<img width="1426" alt="Screenshot 2023-03-02 at 5 54 54 PM" src="https://user-images.githubusercontent.com/41933169/222578556-33a55eb9-9bc8-4f32-b926-0b283b8c5fad.png">
+
 ## Technology Stack & Tools
 
 - [Solidity](https://docs.soliditylang.org/en/v0.8.19/): Writing smart contracts & testing
