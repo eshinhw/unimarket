@@ -11,7 +11,6 @@ import UniMarketABI from "./abis/UniMarket.json";
 // Config
 import config from "./config.json";
 import "bootstrap/dist/css/bootstrap.min.css";
-import CarouselItems from "./components/CarouselItems";
 import HomePage from "./pages/HomePage";
 
 export const DataContext = createContext();
@@ -65,10 +64,6 @@ export default function App() {
       currItemCopy.cost = ethers.utils.formatUnits(currItem.cost.toString(), "ether");
       items.push(currItemCopy);
     }
-
-    // console.log(items);
-    // setItems(items);
-
 
     const cars = items.filter((item) => item.category === "Car");
     const gadgets = items.filter((item) => item.category === "Personal Gadget");
