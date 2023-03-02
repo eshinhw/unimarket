@@ -12,6 +12,7 @@ import UniMarketABI from "./abis/UniMarket.json";
 import config from "./config.json";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CarouselItems from "./components/CarouselItems";
+import HomePage from "./pages/HomePage";
 
 export const DataContext = createContext();
 
@@ -96,7 +97,9 @@ export default function App() {
           account,
         ]}
       />
-      {toggleCarousel && <CarouselItems />}
+      <HomePage />
+      {/* <div style={{backgroundColor: "green", fontSize: "25px", marginTop:"10px", textAlign: "center", paddingLeft: "80px"}}>Welcome to UniMarket!</div> */}
+      {/* {toggleCarousel && <CarouselItems />} */}
       {toggleCar && (
         <Section
           title={"Electric Cars"}
