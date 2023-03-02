@@ -1,4 +1,5 @@
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import marketImg from "../assets/digital-marketing.png";
 
 const Navigation = ({ props }) => {
   const account = props[5];
@@ -48,7 +49,7 @@ const Navigation = ({ props }) => {
       <Navbar bg="light" expand="lg">
         <Container>
           <Nav.Link href="/" style={{ fontSize: "50px" }}>
-            UniMarket
+            UniMarket <img style={{width: "42px", height:"42px"}}src={marketImg} />
           </Nav.Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Nav style={{ marginRight: "15px" }} className="justify-content-center">
