@@ -11,7 +11,7 @@ A decentralized marketplace that uses a set of smart contracts to execute order 
 - [Hardhat](https://hardhat.org/): Ethereum development framework
 - [Ethers.js](https://docs.ethers.io/v5/): Blockchain interaction in Web App
 - [React.js](https://reactjs.org/): Frontend framework
-- [React Redux](https://react-redux.js.org): A pattern and library for managing and updating application state
+<!--  - [React Redux](https://react-redux.js.org): A pattern and library for managing and updating application state -->
 
 ## Requirements For Initial Setup
 
