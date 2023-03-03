@@ -2,8 +2,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ElectricCarPage from "./pages/CategoryPage";
+import ElectricCarPage from "./pages/ElectricCarPage";
 import Header from "./components/Header";
+import PersonalGadgetPage from "./pages/PersonalGadgetPage";
+import BooksMagPage from "./pages/BooksMagPage";
+import ClothingPage from "./pages/ClothingPage";
 
 export default function App() {
   return (
@@ -13,61 +16,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/electric-cars" element={<ElectricCarPage />} />
+          <Route path="/personal-gadgets" element={<PersonalGadgetPage />} />
+          <Route path="/books-magazines" element={<BooksMagPage />} />
+          <Route path="/clothing" element={<ClothingPage />} />
         </Routes>
       </Router>
     </>
-    // <div>
-    // <Navigation
-    //   props={[
-    //     setToggleCar,
-    //     setToggleGadget,
-    //     setToggleBook,
-    //     setToggleClothing,
-    //     setToggleCarousel,
-    //     account,
-    //   ]}
-    // />
-    //   <HomePage />
-    //   {toggleCar && (
-    //     <Section
-    //       title={"Electric Cars"}
-    //       cars={cars}
-    //       setToggle={setToggleCar}
-    //       unimarket={unimarket}
-    //       provider={provider}
-    //       account={account}
-    //     />
-    //   )}
-    //   {toggleGadget && (
-    //     <Section
-    //       title={"Personal Gadgets"}
-    //       cars={gadgets}
-    //       setToggle={setToggleGadget}
-    //       unimarket={unimarket}
-    //       provider={provider}
-    //       account={account}
-    //     />
-    //   )}
-    //   {toggleBook && (
-    //     <Section
-    //       title={"Books & Magazines"}
-    //       cars={books}
-    //       setToggle={setToggleBook}
-    //       unimarket={unimarket}
-    //       provider={provider}
-    //       account={account}
-    //     />
-    //   )}
-    //   {toggleClothing && (
-    //     <Section
-    //       title={"Clothing"}
-    //       cars={clothing}
-    //       setToggle={setToggleClothing}
-    //       unimarket={unimarket}
-    //       provider={provider}
-    //       account={account}
-    //     />
-    //   )}
-    // </div>
   );
 }

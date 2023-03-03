@@ -19,40 +19,8 @@ const Header = () => {
   const logoutHandler = () => {};
 
   useEffect(() => {
-    connectHandler()
-  }, [])
-  const handleOnClick = (e) => {
-    const currText = e.target.innerText;
-
-    // if (currText === "ELECTRIC CARS") {
-    //   props[0](true);
-    //   props[1](false);
-    //   props[2](false);
-    //   props[3](false);
-    //   props[4](false);
-    // }
-    // if (currText === "PERSONAL GADGETS") {
-    //   props[0](false);
-    //   props[1](true);
-    //   props[2](false);
-    //   props[3](false);
-    //   props[4](false);
-    // }
-    // if (currText === "BOOKS & MAGAZINES") {
-    //   props[0](false);
-    //   props[1](false);
-    //   props[2](true);
-    //   props[3](false);
-    //   props[4](false);
-    // }
-    // if (currText === "CLOTHING") {
-    //   props[0](false);
-    //   props[1](false);
-    //   props[2](false);
-    //   props[3](true);
-    //   props[4](false);
-    // }
-  };
+    connectHandler();
+  }, []);
 
   return (
     <div>
@@ -63,12 +31,10 @@ const Header = () => {
           </Nav.Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Nav style={{ marginRight: "15px" }} className="justify-content-center">
-            <Nav.Link href="/electric-cars">
-              ELECTRIC CARS
-            </Nav.Link>
-            <Nav.Link onClick={(e) => handleOnClick(e)}>PERSONAL GADGETS</Nav.Link>
-            <Nav.Link onClick={(e) => handleOnClick(e)}>BOOKS & MAGAZINES</Nav.Link>
-            <Nav.Link onClick={(e) => handleOnClick(e)}>CLOTHING</Nav.Link>
+            <Nav.Link href="/electric-cars">ELECTRIC CARS</Nav.Link>
+            <Nav.Link href="/personal-gadgets">PERSONAL GADGETS</Nav.Link>
+            <Nav.Link href="/books-magazines">BOOKS & MAGAZINES</Nav.Link>
+            <Nav.Link href="/clothing">CLOTHING</Nav.Link>
           </Nav>
           {account ? (
             <>
