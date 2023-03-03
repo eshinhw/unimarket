@@ -62,12 +62,7 @@ function ClothingPage() {
 
   return (
     <>
-    <div className="home__image">
-      <img src="https://images-na.ssl-images-amazon.com/images/G/15/AMAZON_FASHION/2022/Brands/Gap/Browse/AF_Gap_Desktop_EN.jpg" />
-    </div>
       <div className="cards__section">
-        <h3></h3>
-        <hr />
         {processed ? (
           <CardItem data={clothing} unimarket={unimarket} provider={provider} account={account} />
         ) : (

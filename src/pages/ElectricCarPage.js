@@ -52,11 +52,8 @@ const ElectricCarPage = () => {
 
     const cars = items.filter((item) => item.category === "Car");
     setCars(cars);
-    const gadgets = items.filter((item) => item.category === "Personal Gadget");
-    const books = items.filter((item) => item.category === "Books & Magazines");
-    const clothing = items.filter((item) => item.category === "Clothing");
 
-    setProcessed(true)
+    setProcessed(true);
   };
 
   useEffect(() => {
@@ -65,14 +62,12 @@ const ElectricCarPage = () => {
 
   return (
     <>
-      <div className="home__image">
-        <img src="https://tesla-cdn.thron.com/delivery/public/image/tesla/c82315a6-ac99-464a-a753-c26bc0fb647d/bvlatuR/std/1200x628/lhd-model-3-social" />
-      </div>
-      <div className="cards__section">
-        <h3></h3>
-        <hr />
-        {processed ? (<CardItem data={cars} unimarket={unimarket} provider={provider} account={account} />) : (<></>)}
-        
+      <div className="cards__section" style={{marginTop: "20px"}}>
+        {processed ? (
+          <CardItem data={cars} unimarket={unimarket} provider={provider} account={account} />
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );
