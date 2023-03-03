@@ -6,6 +6,7 @@ import CardItem from "../components/CardItem";
 
 // Config
 import config from "../config.json";
+import "../css/BooksMagPage.css"
 
 function BooksMagPage() {
   const [provider, setProvider] = useState(null);
@@ -61,6 +62,9 @@ function BooksMagPage() {
 
   return (
     <>
+    <div className="home__image">
+        <img src="https://images-na.ssl-images-amazon.com/images/G/15/CA-hq/2023/img/Books/XCM_CUTTLE_1531196_2851073_1500x375_en_US.jpg"/>
+      </div>
       <div className="cards__section">
         <h3></h3>
         <hr />

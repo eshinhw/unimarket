@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Tesla Model S",
       "category": "Car",
-      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/drone.jpg",
+      "image": "https://tesla-cdn.thron.com/delivery/public/image/tesla/638101a8-7cab-47b1-9ce4-034f070b7400/bvlatuR/std/1800x998/Model-S-Order-Hero-Desktop-Mobile-LHD?quality=auto-medium&amp;format=auto",
       "price": "1",
       "rating": 4,
       "inventory": 10
@@ -13,7 +13,7 @@
       "id": 2,
       "name": "Tesla Model 3",
       "category": "Car",
-      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/drone.jpg",
+      "image": "https://tesla-cdn.thron.com/delivery/public/image/tesla/1275ab15-9ad9-473c-a329-8e3eb6ebd5de/bvlatuR/std/2266x734/Model-3-Order-Hero-Desktop-Mobile-Global?quality=auto-medium&amp;format=auto",
       "price": "2",
       "rating": 5,
       "inventory": 6
@@ -22,7 +22,7 @@
       "id": 3,
       "name": "Tesla Model X",
       "category": "Car",
-      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/headset.jpg",
+      "image": "https://tesla-cdn.thron.com/delivery/public/image/tesla/835626bf-af31-4211-a1a3-37e430a0a6ac/bvlatuR/std/1800x998/Model-X-Order-Hero-Desktop-Mobile-LHD?quality=auto-medium&amp;format=auto",
       "price": "0.25",
       "rating": 2,
       "inventory": 24
@@ -31,7 +31,7 @@
       "id": 4,
       "name": "Tesla Model Y",
       "category": "Car",
-      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/shoes.jpg",
+      "image": "https://tesla-cdn.thron.com/delivery/public/image/tesla/71b23730-ad0d-4993-af25-e2bf033b1919/bvlatuR/std/1934x600/Model-Y-Order-Hero-Desktop-Mobile-Global?quality=auto-medium&amp;format=auto",
       "price": "0.25",
       "rating": 5,
       "inventory": 3
@@ -40,16 +40,16 @@
       "id": 5,
       "name": "Tesla Cybertruck",
       "category": "Car",
-      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/sunglasses.jpg",
+      "image": "https://tesla-cdn.thron.com/delivery/public/image/tesla/c834642e-bd02-47d1-a16d-eddabd15ddb8/bvlatuR/std/1251x704/Cybertruck-Order-Hero-Global",
       "price": "0.10",
       "rating": 4,
       "inventory": 12
     },
     {
       "id": 6,
-      "name": "Nikon N750",
+      "name": "Sony WH-1000XM5 Wireless Industry Leading Noise Cancelling Headphones with Auto Noise Cancelling Optimizer, Crystal Clear Hands-Free Calling, and Alexa Voice Control, Black",
       "category": "Personal Gadget",
-      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "image": "https://cdn-4.nikon-cdn.com/e/Q5NM96RZZo-YRYNeYvAi9beHK4x3L-8iSKFuXbTDiVzKiZ_IJQu2eA==/Views/1543_D750_front.png",
       "price": "1.25",
       "rating": 4,
       "inventory": 20
@@ -58,7 +58,7 @@
       "id": 7,
       "name": "Sony Headphone",
       "category": "Personal Gadget",
-      "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "image": "https://m.media-amazon.com/images/I/61+btxzpfDL._AC_SL1500_.jpg",
       "price": "1.25",
       "rating": 4,
       "inventory": 20

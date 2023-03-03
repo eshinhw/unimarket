@@ -65,6 +65,9 @@ const ElectricCarPage = () => {
 
   return (
     <>
+      <div className="home__image">
+        <img src="https://tesla-cdn.thron.com/delivery/public/image/tesla/c82315a6-ac99-464a-a753-c26bc0fb647d/bvlatuR/std/1200x628/lhd-model-3-social" />
+      </div>
       <div className="cards__section">
         <h3></h3>
         <hr />

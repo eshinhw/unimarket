@@ -20,7 +20,7 @@ function CardItem({ data, unimarket, provider, account }) {
   const handleShow = () => setShow(true);
 
   console.log("unimarket inside CardItem: ", unimarket);
-  console.log(account)
+  console.log(account);
 
   const fetchOrderDetails = async () => {
     // query all events
@@ -59,7 +59,11 @@ function CardItem({ data, unimarket, provider, account }) {
         {data.map((d, index) => (
           <Col sm={4} key={index}>
             <Card style={{ width: "20rem" }} key={index}>
-              <Card.Img variant="top" src={d.image} />
+              <Card.Img
+                variant="top"
+                src={d.image}
+                style={{ maxHeight: "300px", width: "100%", height: "auto", objectFit: "contain" }}
+              />
               <Card.Title style={{ textAlign: "center", marginTop: "20px", fontSize: "20px" }}>
                 <b>{d.name}</b>
               </Card.Title>
