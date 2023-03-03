@@ -7,7 +7,7 @@ import CardItem from "../components/CardItem";
 // Config
 import config from "../config.json";
 
-const ElectricCarPage = () => {
+const LaptopPage = () => {
   const [provider, setProvider] = useState(null);
   const [unimarket, setUnimarket] = useState(null);
   const [cars, setCars] = useState(null);
@@ -62,7 +62,7 @@ const ElectricCarPage = () => {
 
   return (
     <>
-      <div className="cards__section" style={{marginTop: "20px"}}>
+      <div className="cards__section">
         {processed ? (
           <CardItem data={cars} unimarket={unimarket} provider={provider} account={account} />
         ) : (
@@ -73,4 +73,4 @@ const ElectricCarPage = () => {
   );
 };
 
-export default ElectricCarPage;
+export default LaptopPage;

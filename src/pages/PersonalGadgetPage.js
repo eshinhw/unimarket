@@ -50,9 +50,7 @@ function PersonalGadgetPage() {
     }
 
     const gadgets = items.filter((item) => item.category === "Personal Gadget");
-    setGadgets(gadgets)
-    const books = items.filter((item) => item.category === "Books & Magazines");
-    const clothing = items.filter((item) => item.category === "Clothing");
+    setGadgets(gadgets);
 
     setProcessed(true);
   };
@@ -63,12 +61,7 @@ function PersonalGadgetPage() {
 
   return (
     <>
-      <div className="home__image">
-        <img src="https://images-na.ssl-images-amazon.com/images/G/15/electronics/Q12023/CENT_TITLE_EN_V2.jpg"/>
-      </div>
       <div className="cards__section">
-        <h3></h3>
-        <hr />
         {processed ? (
           <CardItem data={gadgets} unimarket={unimarket} provider={provider} account={account} />
         ) : (

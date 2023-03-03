@@ -31,7 +31,7 @@ const Header = () => {
           </Nav.Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Nav style={{ marginRight: "15px" }} className="justify-content-center">
-            <Nav.Link href="/electric-cars">ELECTRIC CARS</Nav.Link>
+            <Nav.Link href="/laptops">LAPTOPS</Nav.Link>
             <Nav.Link href="/personal-gadgets">PERSONAL GADGETS</Nav.Link>
             <Nav.Link href="/books-magazines">BOOKS & MAGAZINES</Nav.Link>
             <Nav.Link href="/clothing">CLOTHING</Nav.Link>
