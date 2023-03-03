@@ -132,7 +132,7 @@ function CardItem({ data, unimarket, provider, account }) {
                         <Col>
                           <img
                             src={modalData.image}
-                            style={{ display: "block", margin: "auto" }}
+                            style={{ display: "block", margin: "auto", width: "400px", height: "400px" }}
                             alt="Modal"
                           ></img>
                         </Col>
