@@ -20,6 +20,7 @@ function CardItem({ data, unimarket, provider, account }) {
   const handleShow = () => setShow(true);
 
   console.log("unimarket inside CardItem: ", unimarket);
+  console.log(account);
 
   const fetchOrderDetails = async () => {
     // query all events
@@ -56,9 +57,13 @@ function CardItem({ data, unimarket, provider, account }) {
     <div>
       <Row>
         {data.map((d, index) => (
-          <Col sm={4}>
+          <Col sm={4} key={index}>
             <Card style={{ width: "20rem" }} key={index}>
-              <Card.Img variant="top" src={d.image} />
+              <Card.Img
+                variant="top"
+                src={d.image}
+                style={{ maxHeight: "300px", width: "100%", height: "auto", objectFit: "contain" }}
+              />
               <Card.Title style={{ textAlign: "center", marginTop: "20px", fontSize: "20px" }}>
                 <b>{d.name}</b>
               </Card.Title>
@@ -127,7 +132,7 @@ function CardItem({ data, unimarket, provider, account }) {
                         <Col>
                           <img
                             src={modalData.image}
-                            style={{ display: "block", margin: "auto" }}
+                            style={{ display: "block", margin: "auto", width: "400px", height: "400px" }}
                             alt="Modal"
                           ></img>
                         </Col>
