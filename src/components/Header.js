@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import marketImg from "../assets/digital-marketing.png";
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
+import shoppingBasketImg from "../assets/shopping-cart.png";
+import "../css/Header.css";
 
 const Header = () => {
   const [account, setAccount] = useState(null);
@@ -36,7 +38,12 @@ const Header = () => {
             <Nav.Link href="/books-magazines">BOOKS & MAGAZINES</Nav.Link>
             <Nav.Link href="/clothing">CLOTHING</Nav.Link>
           </Nav>
-          {account ? (
+          <div className="basket__section">
+            <img className="basket__img" src={shoppingBasketImg} alt="" />
+            <p>0</p>
+          </div>
+
+          {/* {account ? (
             <>
               <div>
                 <Button onClick={logoutHandler} style={{ marginRight: "15px" }}>
@@ -49,7 +56,7 @@ const Header = () => {
             </>
           ) : (
             <Button onClick={connectHandler}>CONNECT TO METAMASK</Button>
-          )}
+          )} */}
         </Container>
       </Navbar>
     </div>
