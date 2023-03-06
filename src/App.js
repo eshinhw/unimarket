@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import PersonalGadgetPage from "./pages/PersonalGadgetPage";
 import BooksMagPage from "./pages/BooksMagPage";
 import ClothingPage from "./pages/ClothingPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/personal-gadgets" element={<PersonalGadgetPage />} />
           <Route path="/books-magazines" element={<BooksMagPage />} />
           <Route path="/clothing" element={<ClothingPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </Router>
     </>
