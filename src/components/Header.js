@@ -2,30 +2,13 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import marketImg from "../assets/digital-marketing.png";
 import { ethers } from "ethers";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import shoppingBasketImg from "../assets/shopping-cart.png";
 import "../css/Header.css";
-import { useStateValue } from "../StateProvider";
+import StateContext from "../StateContext";
 
 const Header = () => {
-  const [account, setAccount] = useState(null);
-  // const [{ basket }, dispatch] = useStateValue();
-
-  const connectHandler = async () => {
-    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-    const account = ethers.utils.getAddress(accounts[0]);
-    setAccount(account);
-
-    if (account === null) {
-      window.alert("Please set up MetaMask on your Chrome.");
-    }
-  };
-
-  const logoutHandler = () => {};
-
-  useEffect(() => {
-    connectHandler();
-  }, []);
+  const state = useContext(StateContext);
 
   return (
     <div>
@@ -44,7 +27,7 @@ const Header = () => {
           <Nav.Link href="/checkout">
             <div className="basket__section">
               <img className="basket__img" src={shoppingBasketImg} alt="" />
-              <p className="basket__count">0</p>
+              <p className="basket__count">{state.cart.length}</p>
             </div>
           </Nav.Link>
 

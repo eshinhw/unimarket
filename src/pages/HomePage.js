@@ -4,7 +4,6 @@ import Product from "../components/Product";
 import testData from "../testData.json";
 
 const HomePage = () => {
-  console.log(testData);
   return (
     <div className="home">
       <div className="home__container">
