@@ -3,9 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import marketImg from "../assets/digital-marketing.png";
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
+import shoppingBasketImg from "../assets/shopping-cart.png";
+import "../css/Header.css";
+import { useStateValue } from "../StateProvider";
 
 const Header = () => {
   const [account, setAccount] = useState(null);
+  // const [{ basket }, dispatch] = useStateValue();
+
   const connectHandler = async () => {
     const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
     const account = ethers.utils.getAddress(accounts[0]);
@@ -36,7 +41,14 @@ const Header = () => {
             <Nav.Link href="/books-magazines">BOOKS & MAGAZINES</Nav.Link>
             <Nav.Link href="/clothing">CLOTHING</Nav.Link>
           </Nav>
-          {account ? (
+          <Nav.Link href="/checkout">
+            <div className="basket__section">
+              <img className="basket__img" src={shoppingBasketImg} alt="" />
+              <p className="basket__count">0</p>
+            </div>
+          </Nav.Link>
+
+          {/* {account ? (
             <>
               <div>
                 <Button onClick={logoutHandler} style={{ marginRight: "15px" }}>
@@ -49,7 +61,7 @@ const Header = () => {
             </>
           ) : (
             <Button onClick={connectHandler}>CONNECT TO METAMASK</Button>
-          )}
+          )} */}
         </Container>
       </Navbar>
     </div>
