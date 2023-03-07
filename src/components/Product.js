@@ -1,21 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../css/Product.css";
 import starSolid from "../assets/star-solid.svg";
 import starRegular from "../assets/star-regular.svg";
 import { Button } from "react-bootstrap";
-import { useStateValue } from "../StateProvider";
+import DispatchContext from "../DispatchContext";
 
 function Product({ title, price, image, rating }) {
-  // { basket }: state of global store
-  // dispatch: how we manipulate data layer
-  // const [{ basket }, dispatch] = useStateValue();
+  const dispatch = useContext(DispatchContext);
+
   const addToCart = () => {
-    // dispatch the item into the data layer
-    // dispatch({
-    //   type: "ADD_TO_BASKET",
-    //   item: { title: title, price: price, image: image, rating: rating },
-    // });
+    console.log(title, price);
+    dispatch({ type: "ADD_TO_CART", payload: { title, price, rating, image } });
   };
+
   return (
     <div className="product">
       <div className="product__info">
