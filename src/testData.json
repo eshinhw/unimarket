@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "ASUS VivoBook 15 X515 Thin and Light Laptop, 15.6” HD Display,Intel Pentium,4GB RAM,128GB SSD,Windows 11 Home in S Mode + 1 Year Microsoft 365 Personal, X515MA-AH09-CA",
-      "category": "Car",
+      "category": "Laptop",
       "image": "https://m.media-amazon.com/images/I/81oVSSITRQL._AC_SL1500_.jpg",
       "price": "1",
       "rating": 4,
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "name": "ASUS Chromebook C223 11.6\" HD Chromebook Laptop, Intel Dual-Core Celeron N3350 Processor, 4GB RAM, 32GB eMMC, Grey, Chrome OS C223NA-MB01-CB",
-      "category": "Car",
+      "category": "Laptop",
       "image": "https://m.media-amazon.com/images/I/91M+pHwgnBL._AC_SL1500_.jpg",
       "price": "2",
       "rating": 5,
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "name": "Mid 2017 Apple MacBook Air with 1.8GHz Intel Core i5 (13-inch, 8GB RAM, 128GB SSD) Silver (Renewed)",
-      "category": "Car",
+      "category": "Laptop",
       "image": "https://m.media-amazon.com/images/I/91wYB53Y4aL._AC_SL1500_.jpg",
       "price": "0.25",
       "rating": 2,
@@ -30,7 +30,7 @@
     {
       "id": 4,
       "name": "Samsung Galaxy Book2 15.6 Inch Amoled i7 (intel 12th Gen) | 8G DDR4x | 256G SSD | Graphite | Windows 11 Home laptop",
-      "category": "Car",
+      "category": "Laptop",
       "image": "https://m.media-amazon.com/images/I/51yAprOnlzL._AC_SL1000_.jpg",
       "price": "0.25",
       "rating": 5,
@@ -39,7 +39,7 @@
     {
       "id": 5,
       "name": "Lenovo ThinkPad T480 14-inch HD Business Laptop (Intel 8th Gen Quad-Core i5-8250U, 16GB DDR4 RAM, Toshiba 256GB PCIe NVMe 2242 M.2 SSD) Fingerprint, Thunderbolt 3 Type-C, WiFi, Windows 10 Pro (Renewed)",
-      "category": "Car",
+      "category": "Laptop",
       "image": "https://m.media-amazon.com/images/I/51svvqLPS4L._AC_SL1000_.jpg",
       "price": "0.10",
       "rating": 4,
