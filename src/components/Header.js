@@ -9,12 +9,6 @@ import StateContext from "../StateContext";
 
 const Header = () => {
   const state = useContext(StateContext);
-  const navigate = useNavigate();
-
-  const directToCheckoutPage = () => {
-    console.log("to checkout");
-    navigate("/checkout", { state: state });
-  };
 
   return (
     <div className="header">
