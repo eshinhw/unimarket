@@ -12,13 +12,14 @@ function CartProduct({ id, title, category, image, price, rating, inventory }) {
   };
   return (
     <div className="cart__product">
-      <div className="product__info">
-        <p>{title.slice(0,20)}......{title.slice(title.length - 10)}</p>
-        <p className="product__price">
+      <img src={image} />
+      <div className="cart__product__info">
+        <p>{title}</p>
+        <p className="cart__product__price">
           <strong>{price}</strong>
           <small> ETH</small>
         </p>
-        <div className="product__rating">
+        <div className="cart__product__rating">
           {Array(rating)
             .fill()
             .map((_, i) => (
@@ -26,8 +27,8 @@ function CartProduct({ id, title, category, image, price, rating, inventory }) {
             ))}
         </div>
       </div>
-      <img src={image} />
-      <div className="product__buttons">
+
+      <div className="cart__product__buttons">
         <Button onClick={removeFromCart}>Remove</Button>
       </div>
     </div>

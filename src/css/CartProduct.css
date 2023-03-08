@@ -1,6 +1,6 @@
 .cart__product {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-end;
   margin: 10px;
@@ -17,24 +17,28 @@
 }
 
 .cart__product > img {
-  max-height: 100px;
+  max-height: 150px;
   width: 30%;
   object-fit: contain;
   margin-bottom: 15px;
 }
 
-.product__rating > img {
+.cart__product__info {
+  margin-left: 50px;
+  width: 800px;
+}
+
+.cart__product__rating > img {
   width: 15px;
   height: 15px;
   margin-bottom: 50px;
 }
 
-.product > button {
+.cart__product > button {
   margin-top: 20px;
-
 }
 
-.product__buttons {
+.cart__product__buttons {
   display: flex;
   flex-direction: row;
   gap: 25px;

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import CartProduct from "../components/CartProduct";
-import Product from "../components/Product";
 import StateContext from "../StateContext";
 import emptyCartImg from "../assets/empty-cart.png";
 import "../css/CheckoutPage.css";
