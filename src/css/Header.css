@@ -2,24 +2,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 30px;
 }
 
-.header a {
-  text-decoration: none;
-
-}
-
-.header__title {
-  display: flex;
-  margin-left: 90px;
-}
-
-.header__title p {
+a {
   font-size: 40px;
   margin-top: auto;
   margin-bottom: auto;
   text-decoration: none;
   color: black;
+}
+
+a:hover {
+  color: rgb(116, 116, 204);
+  text-decoration: underline;
+}
+
+.header__title {
+  display: flex;
+  margin-left: 90px;
 }
 
 .header__title img {
@@ -35,10 +36,8 @@
 }
 
 .header__links a {
-  text-decoration: none;
-  color: black;
+  font-size: 25px;
 }
-
 
 .header__checkout {
   margin-right: 150px;
@@ -69,5 +68,3 @@
   font-size: 30px;
   color: black;
 }
-
-

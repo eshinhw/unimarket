@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <div className="header">
       <Link className="header__title" to={"/"}>
-        <p>UniMarket</p>
+        <a>UniMarket</a>
         <img src={marketImg} style={{ width: "42px", height: "42px" }} />
       </Link>
       <div className="header__links">
