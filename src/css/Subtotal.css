@@ -12,14 +12,11 @@
   margin-top: 20px;
 }
 
-.subtotal__elements p {
-  font-size: 30px;
-}
-
 .gift__check {
   display: flex;
   justify-content: left;
   align-items: center;
+  margin-top: 20px;
 }
 
 .gift__check input {
