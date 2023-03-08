@@ -12,6 +12,7 @@ function CategoryPage({ category }) {
 
   const state = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
+  console.log(state);
 
   const loadProducts = async () => {
     const products = await sampleData.data.filter((item) => item.category === category);
