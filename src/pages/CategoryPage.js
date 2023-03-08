@@ -37,8 +37,8 @@ function CategoryPage({ category }) {
               title={item.name}
               category={item.category}
               image={item.image}
-              price={item.price}
-              rating={item.rating}
+              price={item.cost}
+              rating={Number(item.rating)}
               inventory={item.inventory}
               key={idx}
             />

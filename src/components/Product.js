@@ -6,8 +6,9 @@ import { Button } from "react-bootstrap";
 import DispatchContext from "../DispatchContext";
 import StateContext from "../StateContext";
 
-function Product({ title, price, image, rating }) {
+function Product({ id, title, category, image, price, rating, inventory }) {
   const dispatch = useContext(DispatchContext);
+  console.log(price, rating)
 
   const addToCart = () => {
     dispatch({ type: "ADD_TO_CART", payload: { title, price, rating, image } });
