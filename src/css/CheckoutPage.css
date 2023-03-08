@@ -15,3 +15,26 @@
   margin: auto 0 auto 0;
   font-size: 30px;
 }
+
+.checkout {
+  display: flex;
+  padding: 20px;
+  height: max-content;
+  width: 100%;
+  border: 1px solid black;
+  margin-left: 90px;
+  margin-right: 100px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+
+.check__left {
+  border: 1px solid black;
+}
+
+.check__right {
+  width: 100%;
+}

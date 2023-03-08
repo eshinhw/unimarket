@@ -13,7 +13,7 @@ function CartProduct({ id, title, category, image, price, rating, inventory }) {
   return (
     <div className="cart__product">
       <div className="product__info">
-        <p>{title}</p>
+        <p>{title.slice(0,20)}......{title.slice(title.length - 10)}</p>
         <p className="product__price">
           <strong>{price}</strong>
           <small> ETH</small>

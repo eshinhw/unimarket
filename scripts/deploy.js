@@ -7,7 +7,7 @@
 const { ethers } = require("hardhat");
 const hre = require("hardhat");
 const { data } = require("../src/testData.json");
-const fs = require("fs");
+
 
 const tokens = (n) => {
   return ethers.utils.parseUnits(n.toString(), "ether");
@@ -25,7 +25,7 @@ async function main() {
   for (let i = 0; i < data.length; i++) {
     const transaction = await UniMarketDeployed.connect(deployer).list(
       data[i].id,
-      data[i].name,
+      data[i].title,
       data[i].category,
       data[i].image,
       // convert to tokens
@@ -35,19 +35,8 @@ async function main() {
     );
     await transaction.wait();
 
-    console.log(`Listed item ${data[i].id}: ${data[i].name}`);
+    console.log(`Listed item ${data[i].id}: ${data[i].title}`);
   }
-
-  // const configData = fs.readFile("~/Desktop/unimarket/src/config.json", "utf-8", (err, jsonString) => {
-  //   if (err) {
-  //     console.log("File read failed: ", err)
-  //     return;
-  //   } 
-  //   console.log(jsonString)
-  // });
-  // console.log(configData);
-
-  // config[31337].unimarket.address = UniMarketDeployed.address;
 }
 
 // We recommend this pattern to be able to use async/await everywhere

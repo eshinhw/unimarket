@@ -12,10 +12,10 @@ contract UniMarket {
 
     struct Item {
         uint256 id;
-        string name;
+        string title;
         string category;
         string image;
-        uint256 cost;
+        uint256 price;
         uint256 rating;
         uint256 inventory;
     }
@@ -40,7 +40,7 @@ contract UniMarket {
     // An event generated is not accessible from within contracts, not even the one which have created and emitted them.
     // An event can be declared using event keyword.
 
-    event List(string name, uint256 cost, uint256 stock);
+    event List(string title, uint256 price, uint256 inventory);
     event Purchase(address buyer, uint256 orderId, uint256 itemId);
 
     constructor() {
@@ -59,10 +59,10 @@ contract UniMarket {
     // List cars
     function list(
         uint256 _id,
-        string memory _name,
+        string memory _title,
         string memory _category,
         string memory _image,
-        uint256 _cost,
+        uint256 _price,
         uint256 _rating,
         uint256 _inventory
     ) public onlySeller {
@@ -73,10 +73,10 @@ contract UniMarket {
         // create Item struct using the input parameters
         Item memory currItem = Item(
             _id,
-            _name,
+            _title,
             _category,
             _image,
-            _cost,
+            _price,
             _rating,
             _inventory
         );
@@ -87,7 +87,7 @@ contract UniMarket {
 
         // Emit an event
         // What 
-        emit List(_name, _cost, _inventory);
+        emit List(_title, _price, _inventory);
     }
 
     function purchase(uint256 _id) public payable {

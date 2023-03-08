@@ -13,7 +13,7 @@ const HomePage = () => {
             <Product
               className="home__row__item"
               id={item.id}
-              title={item.name}
+              title={item.title}
               category={item.category}
               image={item.image}
               price={item.price}

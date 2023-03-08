@@ -2,7 +2,7 @@
   "data": [
     {
       "id": 1,
-      "name": "ASUS VivoBook 15 X515 Thin and Light Laptop, 15.6” HD Display,Intel Pentium,4GB RAM,128GB SSD,Windows 11 Home in S Mode + 1 Year Microsoft 365 Personal, X515MA-AH09-CA",
+      "title": "ASUS VivoBook 15 X515 Thin and Light Laptop, 15.6” HD Display,Intel Pentium,4GB RAM,128GB SSD,Windows 11 Home in S Mode + 1 Year Microsoft 365 Personal, X515MA-AH09-CA",
       "category": "Laptop",
       "image": "https://m.media-amazon.com/images/I/81oVSSITRQL._AC_SL1500_.jpg",
       "price": "1",
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "name": "ASUS Chromebook C223 11.6\" HD Chromebook Laptop, Intel Dual-Core Celeron N3350 Processor, 4GB RAM, 32GB eMMC, Grey, Chrome OS C223NA-MB01-CB",
+      "title": "ASUS Chromebook C223 11.6\" HD Chromebook Laptop, Intel Dual-Core Celeron N3350 Processor, 4GB RAM, 32GB eMMC, Grey, Chrome OS C223NA-MB01-CB",
       "category": "Laptop",
       "image": "https://m.media-amazon.com/images/I/91M+pHwgnBL._AC_SL1500_.jpg",
       "price": "2",
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "name": "Mid 2017 Apple MacBook Air with 1.8GHz Intel Core i5 (13-inch, 8GB RAM, 128GB SSD) Silver (Renewed)",
+      "title": "Mid 2017 Apple MacBook Air with 1.8GHz Intel Core i5 (13-inch, 8GB RAM, 128GB SSD) Silver (Renewed)",
       "category": "Laptop",
       "image": "https://m.media-amazon.com/images/I/91wYB53Y4aL._AC_SL1500_.jpg",
       "price": "4",
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "name": "Samsung Galaxy Book2 15.6 Inch Amoled i7 (intel 12th Gen) | 8G DDR4x | 256G SSD | Graphite | Windows 11 Home laptop",
+      "title": "Samsung Galaxy Book2 15.6 Inch Amoled i7 (intel 12th Gen) | 8G DDR4x | 256G SSD | Graphite | Windows 11 Home laptop",
       "category": "Laptop",
       "image": "https://m.media-amazon.com/images/I/51yAprOnlzL._AC_SL1000_.jpg",
       "price": "25",
@@ -38,7 +38,7 @@
     },
     {
       "id": 5,
-      "name": "Lenovo ThinkPad T480 14-inch HD Business Laptop (Intel 8th Gen Quad-Core i5-8250U, 16GB DDR4 RAM, Toshiba 256GB PCIe NVMe 2242 M.2 SSD) Fingerprint, Thunderbolt 3 Type-C, WiFi, Windows 10 Pro (Renewed)",
+      "title": "Lenovo ThinkPad T480 14-inch HD Business Laptop (Intel 8th Gen Quad-Core i5-8250U, 16GB DDR4 RAM, Toshiba 256GB PCIe NVMe 2242 M.2 SSD) Fingerprint, Thunderbolt 3 Type-C, WiFi, Windows 10 Pro (Renewed)",
       "category": "Laptop",
       "image": "https://m.media-amazon.com/images/I/51svvqLPS4L._AC_SL1000_.jpg",
       "price": "10",
@@ -47,7 +47,7 @@
     },
     {
       "id": 6,
-      "name": "Nikon 33718 D500 DX-Format Digital SLR Body (Body Only), Black",
+      "title": "Nikon 33718 D500 DX-Format Digital SLR Body (Body Only), Black",
       "category": "Personal Gadget",
       "image": "https://cdn-4.nikon-cdn.com/e/Q5NM96RZZo-YRYNeYvAi9beHK4x3L-8iSKFuXbTDiVzKiZ_IJQu2eA==/Views/1543_D750_front.png",
       "price": "3",
@@ -56,7 +56,7 @@
     },
     {
       "id": 7,
-      "name": "Sony WH-1000XM5 Wireless Industry Leading Noise Cancelling Headphones with Auto Noise Cancelling Optimizer, Crystal Clear Hands-Free Calling, and Alexa Voice Control, Black",
+      "title": "Sony WH-1000XM5 Wireless Industry Leading Noise Cancelling Headphones with Auto Noise Cancelling Optimizer, Crystal Clear Hands-Free Calling, and Alexa Voice Control, Black",
       "category": "Personal Gadget",
       "image": "https://m.media-amazon.com/images/I/61+btxzpfDL._AC_SL1500_.jpg",
       "price": "17",
@@ -65,7 +65,7 @@
     },
     {
       "id": 8,
-      "name": "DEERC D10 Drone with Camera for Adults and Kids 1080P HD FPV Live Video, RC Quadcopter Helicopter with Waypoints, Altitude Hold, One Key Start, Headless Mode, Carrying Case Included",
+      "title": "DEERC D10 Drone with Camera for Adults and Kids 1080P HD FPV Live Video, RC Quadcopter Helicopter with Waypoints, Altitude Hold, One Key Start, Headless Mode, Carrying Case Included",
       "category": "Personal Gadget",
       "image": "https://m.media-amazon.com/images/I/71WdcoDVcPS._AC_SL1500_.jpg",
       "price": "5",
@@ -74,7 +74,7 @@
     },
     {
       "id": 9,
-      "name": "Braun Series 5 5018s Electric Razor for Men with Precision Trimmer, Wet & Dry, Rechargeable, Cordless Foil Shaver",
+      "title": "Braun Series 5 5018s Electric Razor for Men with Precision Trimmer, Wet & Dry, Rechargeable, Cordless Foil Shaver",
       "category": "Personal Gadget",
       "image": "https://m.media-amazon.com/images/I/81Z6mmISFpL._AC_SL1500_.jpg",
       "price": "6",
@@ -83,7 +83,7 @@
     },
     {
       "id": 10,
-      "name": "National Geographic Guide to the National Parks of Canada, 2nd Edition",
+      "title": "National Geographic Guide to the National Parks of Canada, 2nd Edition",
       "category": "Books & Magazines",
       "image": "https://m.media-amazon.com/images/I/91z6P-h7eQL.jpg",
       "price": "8",
@@ -92,7 +92,7 @@
     },
     {
       "id": 11,
-      "name": "The Best of Reader's Digest: Humor, Heart-Warming Stories, and Dramatic Tales",
+      "title": "The Best of Reader's Digest: Humor, Heart-Warming Stories, and Dramatic Tales",
       "category": "Books & Magazines",
       "image": "https://m.media-amazon.com/images/I/81ZWcp9o9bL.jpg",
       "price": "1",
@@ -101,7 +101,7 @@
     },
     {
       "id": 12,
-      "name": "The Twilight Saga White Collection",
+      "title": "The Twilight Saga White Collection",
       "category": "Books & Magazines",
       "image": "https://m.media-amazon.com/images/I/71nuAeAUmzL.jpg",
       "price": "2",
@@ -110,7 +110,7 @@
     },
     {
       "id": 13,
-      "name": "Harry Potter and the Deathly Hallows",
+      "title": "Harry Potter and the Deathly Hallows",
       "category": "Books & Magazines",
       "image": "https://m.media-amazon.com/images/I/81Whkax7IGL.jpg",
       "price": "3",
@@ -119,7 +119,7 @@
     },
     {
       "id": 14,
-      "name": "Calvin Klein mens Lightweight Packable Down Jacket With Fleece Bib and Removable Hood",
+      "title": "Calvin Klein mens Lightweight Packable Down Jacket With Fleece Bib and Removable Hood",
       "category": "Clothing",
       "image": "https://m.media-amazon.com/images/I/7138CRAZyyS._AC_UX679_.jpg",
       "price": "1",
@@ -128,7 +128,7 @@
     },
     {
       "id": 15,
-      "name": "CANADA WEATHER GEAR Mens Heavyweight Teflon Canvas Parka Jacket",
+      "title": "CANADA WEATHER GEAR Mens Heavyweight Teflon Canvas Parka Jacket",
       "category": "Clothing",
       "image": "https://m.media-amazon.com/images/I/716Cls4wR8L._AC_UX679_.jpg",
       "price": "13",
@@ -137,7 +137,7 @@
     },
     {
       "id": 16,
-      "name": "Nike Men's Sportswear Club Fleece Hoodie",
+      "title": "Nike Men's Sportswear Club Fleece Hoodie",
       "category": "Clothing",
       "image": "https://m.media-amazon.com/images/I/41vK0SURRWL._AC_UX679_.jpg",
       "price": "14",

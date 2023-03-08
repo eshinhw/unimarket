@@ -48,6 +48,7 @@ export default function App() {
       currItemCopy.price = ethers.utils.formatUnits(currItem.cost.toString(), "ether");
       items.push(currItemCopy);
     }
+    console.log(items)
     dispatch({ type: "SET_UP_UNIMARKET", payload: unimarket });
     dispatch({ type: "SET_UP_PROVIDER", payload: provider });
     dispatch({ type: "SET_UP_ACCOUNT", payload: account });
