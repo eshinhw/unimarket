@@ -31,17 +31,19 @@ function CategoryPage({ category }) {
       {loaded ? (
         <div className="home__row">
           {products.map((item, idx) => (
-            <Product
-              className="home__row__item"
-              id={item.id}
-              title={item.name}
-              category={item.category}
-              image={item.image}
-              price={item.cost}
-              rating={Number(item.rating)}
-              inventory={item.inventory}
-              key={idx}
-            />
+            <>
+              <Product
+                className="home__row__item"
+                id={item.id}
+                title={item.name}
+                category={item.category}
+                image={item.image}
+                price={item.price}
+                rating={Number(item.rating)}
+                inventory={item.inventory}
+                key={idx}
+              />
+            </>
           ))}
         </div>
       ) : (

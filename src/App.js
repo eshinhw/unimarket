@@ -45,7 +45,7 @@ export default function App() {
     for (let i = 0; i < 16; i++) {
       let currItem = await unimarket.items(i + 1);
       let currItemCopy = { ...currItem };
-      currItemCopy.cost = ethers.utils.formatUnits(currItem.cost.toString(), "ether");
+      currItemCopy.price = ethers.utils.formatUnits(currItem.cost.toString(), "ether");
       items.push(currItemCopy);
     }
     dispatch({ type: "SET_UP_UNIMARKET", payload: unimarket });
