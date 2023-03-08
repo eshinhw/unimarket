@@ -10,8 +10,13 @@ function Product({ id, title, category, image, price, rating, inventory }) {
   const dispatch = useContext(DispatchContext);
 
   const addToCart = () => {
-    dispatch({ type: "ADD_TO_CART", payload: { id, title, category, image, price, rating, inventory } });
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: { id, title, category, image, price, rating, inventory },
+    });
   };
+
+  const goToDetails = () => {};
 
   return (
     <div className="product">
@@ -32,7 +37,7 @@ function Product({ id, title, category, image, price, rating, inventory }) {
       <img src={image} />
       <div className="product__buttons">
         <Button onClick={addToCart}>Add to Cart</Button>
-        <Button>Details</Button>
+        <Button onClick={goToDetails}>Details</Button>
       </div>
     </div>
   );
