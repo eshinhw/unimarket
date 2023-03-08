@@ -12,10 +12,9 @@ function CategoryPage({ category }) {
 
   const state = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
-  console.log(state);
 
   const loadProducts = async () => {
-    const products = await sampleData.data.filter((item) => item.category === category);
+    const products = await state.products.filter((product) => product.category === category);
     console.log(products);
     setProducts(products);
     setLoaded(true);
@@ -23,7 +22,7 @@ function CategoryPage({ category }) {
 
   useEffect(() => {
     loadProducts();
-  }, []);
+  }, [category]);
 
   return (
     <div className="category__page">

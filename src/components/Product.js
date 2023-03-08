@@ -4,12 +4,12 @@ import starSolid from "../assets/star-solid.svg";
 import starRegular from "../assets/star-regular.svg";
 import { Button } from "react-bootstrap";
 import DispatchContext from "../DispatchContext";
+import StateContext from "../StateContext";
 
 function Product({ title, price, image, rating }) {
   const dispatch = useContext(DispatchContext);
 
   const addToCart = () => {
-    console.log(title, price);
     dispatch({ type: "ADD_TO_CART", payload: { title, price, rating, image } });
   };
 
@@ -32,7 +32,7 @@ function Product({ title, price, image, rating }) {
       <img src={image} />
       <div className="product__buttons">
         <Button onClick={addToCart}>Add to Cart</Button>
-        <Button>Order</Button>
+        <Button>Details</Button>
       </div>
     </div>
   );
