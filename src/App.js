@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import CheckoutPage from "./pages/CheckoutPage";
 import CategoryPage from "./pages/CategoryPage";
@@ -64,23 +64,25 @@ export default function App() {
     <>
       <DispatchContext.Provider value={dispatch}>
         <StateContext.Provider value={state}>
-          <Header />
-          <Router>
+          <BrowserRouter>
             <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/laptops" element={<CategoryPage category="Laptop" />} />
+              <Route path="/" element={[<Header />, <HomePage />]} />
+              <Route path="/laptops" element={[<Header />, <CategoryPage category="Laptop" />]} />
               <Route
                 path="/personal-gadgets"
-                element={<CategoryPage category="Personal Gadget" />}
+                element={[<Header />, <CategoryPage category="Personal Gadget" />]}
               />
               <Route
                 path="/books-magazines"
-                element={<CategoryPage category="Books & Magazines" />}
+                element={[<Header />, <CategoryPage category="Books & Magazines" />]}
               />
-              <Route path="/clothing" element={<CategoryPage category="Clothing" />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route
+                path="/clothing"
+                element={[<Header />, <CategoryPage category="Clothing" />]}
+              />
+              <Route path="/checkout" element={[<Header />, <CheckoutPage />]} />
             </Routes>
-          </Router>
+          </BrowserRouter>
         </StateContext.Provider>
       </DispatchContext.Provider>
     </>
