@@ -19,9 +19,6 @@ function CardItem({ data, unimarket, provider, account }) {
   };
   const handleShow = () => setShow(true);
 
-  console.log("unimarket inside CardItem: ", unimarket);
-  console.log(account);
-
   const fetchOrderDetails = async () => {
     // query all events
     if (modalData === null) return;
