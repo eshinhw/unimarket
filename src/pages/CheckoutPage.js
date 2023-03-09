@@ -6,6 +6,7 @@ import "../css/CheckoutPage.css";
 import Subtotal from "../components/Subtotal";
 
 function CheckoutPage() {
+  console.log("CheckoutPage")
   const state = useContext(StateContext);
   const [emptyCart, setEmptyCart] = useState(false);
   const [total, setTotal] = useState(0);

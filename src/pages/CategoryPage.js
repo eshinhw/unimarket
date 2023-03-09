@@ -1,17 +1,16 @@
-import { prettyFormat } from "@testing-library/react";
 import React, { useContext, useEffect, useState } from "react";
 import Product from "../components/Product";
-import sampleData from "../testData.json";
+// import sampleData from "../testData.json";
 import "../css/CategoryPage.css";
 import StateContext from "../StateContext";
-import DispatchContext from "../DispatchContext";
+// import DispatchContext from "../DispatchContext";
 
 function CategoryPage({ category }) {
   const [products, setProducts] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
   const state = useContext(StateContext);
-  const dispatch = useContext(DispatchContext);
+  // const dispatch = useContext(DispatchContext);
 
   const loadProducts = async () => {
     const products = await state.products.filter((product) => product.category === category);
