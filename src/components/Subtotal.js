@@ -1,30 +1,35 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button } from "react-bootstrap";
 import "../css/Subtotal.css";
+import DispatchContext from "../DispatchContext";
+import StateContext from "../StateContext";
 
 function Subtotal({ total }) {
   const [isGift, setIsGift] = useState(false);
   // const [totalSum, setTotalSum] = useState(total);
+  const state = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
 
-  const handleGiftFee = () => {
-    if (isGift) {
-      setIsGift(false);
-      total = total - 1;
-    } else {
-      setIsGift(true);
-      total = total + 1;
-    }
+  const handlePayment = () => {
+    state.cart.map(async (item) => {
+      const signer = await state.provider.getSigner();
+      console.log("signer: ", signer);
+      let transaction = state.unimarket
+        .connect(signer)
+        .purchase(item.id, { value: Number(item.price) });
+      await transaction.wait();
+    });
+
+    dispatch({ type: "CLEAR_CART" });
   };
   return (
     <div className="subtotal">
       <div className="subtotal__elements">
         <h3>Subtotal: {total} ETH</h3>
-        {/* <div className="gift__check">
-          <input type="checkbox" onClick={handleGiftFee} /> <h5>This contains a gift.</h5>
-        </div>
-        {isGift ? "Gift Fee of 1 ETH Will Be Added at Checkout" : <></>} */}
         <br />
-        <Button className="proceed__button">Proceed to Checkout</Button>
+        <Button className="proceed__button" onClick={handlePayment}>
+          Proceed to Checkout
+        </Button>
       </div>
     </div>
   );

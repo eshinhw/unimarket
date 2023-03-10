@@ -6,7 +6,7 @@ import "../css/CheckoutPage.css";
 import Subtotal from "../components/Subtotal";
 
 function CheckoutPage() {
-  console.log("CheckoutPage")
+  console.log("CheckoutPage");
   const state = useContext(StateContext);
   const [emptyCart, setEmptyCart] = useState(false);
   const [total, setTotal] = useState(0);
@@ -25,7 +25,6 @@ function CheckoutPage() {
 
   useEffect(() => {
     checkEmptyCart();
-    console.log(state.cart);
   }, [state]);
 
   return (
