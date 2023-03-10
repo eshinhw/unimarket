@@ -25,6 +25,7 @@ function CheckoutPage() {
 
   useEffect(() => {
     checkEmptyCart();
+    console.log(state.cart);
   }, [state]);
 
   return (
@@ -41,7 +42,7 @@ function CheckoutPage() {
               <CartProduct
                 className="home__row__item"
                 id={item.id}
-                title={item.title}
+                title={item.title || item.name}
                 category={item.category}
                 image={item.image}
                 price={item.price}

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import "../css/ProductDetails.css";
 import starSolid from "../assets/star-solid.svg";
 import { Button } from "react-bootstrap";
-import DispatchContext from "../DispatchContext"
+import DispatchContext from "../DispatchContext";
 
 function ProductDetails({ id, title, category, image, price, rating, inventory }) {
   const params = useParams();
@@ -19,17 +19,19 @@ function ProductDetails({ id, title, category, image, price, rating, inventory }
   console.log(currProduct);
   console.log(state.products);
 
-  const addToCart = () => {
+  const addToCart = (id, title, category, image, price, rating, inventory) => {
     dispatch({
       type: "ADD_TO_CART",
       payload: { id, title, category, image, price, rating, inventory },
     });
+    console.log(state.cart);
   };
 
   const loadProduct = () => {
     const cp = state.products.filter((item) => item.id.toString() === params.id);
     setCurrProduct(cp[0]);
     setLoaded(true);
+    console.log(currProduct);
   };
 
   useEffect(() => {
@@ -74,7 +76,21 @@ function ProductDetails({ id, title, category, image, price, rating, inventory }
               {Number(currProduct.inventory) > 0 ? "In Stock, FREE DELIVERY" : "Out of Stock"}
             </h3>
             <div className="manage__buttons">
-              <Button onClick={addToCart}>Add to Cart</Button>
+              <Button
+                onClick={() =>
+                  addToCart(
+                    currProduct.id,
+                    currProduct.name,
+                    currProduct.category,
+                    currProduct.image,
+                    currProduct.price,
+                    currProduct.rating,
+                    currProduct.inventory
+                  )
+                }
+              >
+                Add to Cart
+              </Button>
             </div>
           </div>
         </>
