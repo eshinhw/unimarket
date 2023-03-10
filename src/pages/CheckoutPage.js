@@ -10,7 +10,6 @@ function CheckoutPage() {
   const state = useContext(StateContext);
   const [emptyCart, setEmptyCart] = useState(false);
   const [total, setTotal] = useState(0);
-  const [complete, setComplete] = useState(false);
 
   const checkEmptyCart = () => {
     if (state.cart.length === 0) {
@@ -26,7 +25,6 @@ function CheckoutPage() {
 
   useEffect(() => {
     checkEmptyCart();
-    console.log(state.cart);
   }, [state]);
 
   return (
@@ -54,7 +52,7 @@ function CheckoutPage() {
             ))}
           </div>
           <div className="checkout__right">
-            <Subtotal total={total} setComplete={setComplete} />
+            <Subtotal total={total} />
           </div>
         </div>
       ) : (
