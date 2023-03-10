@@ -10,6 +10,7 @@ function CheckoutPage() {
   const state = useContext(StateContext);
   const [emptyCart, setEmptyCart] = useState(false);
   const [total, setTotal] = useState(0);
+  const [complete, setComplete] = useState(false);
 
   const checkEmptyCart = () => {
     if (state.cart.length === 0) {
@@ -53,14 +54,15 @@ function CheckoutPage() {
             ))}
           </div>
           <div className="checkout__right">
-            <Subtotal total={total} />
+            <Subtotal total={total} setComplete={setComplete}/>
           </div>
         </div>
       ) : (
-        <div className="empty__cart">
-          <img src={emptyCartImg} alt="" />
-          <p>Cart is Empty......</p>
-        </div>
+        {complete ? () : (<><div className="empty__cart">
+        <img src={emptyCartImg} alt="" />
+        <p>Cart is Empty......</p>
+      </div></>)}
+        
       )}
     </>
   );
