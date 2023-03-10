@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../css/Product.css";
 import starSolid from "../assets/star-solid.svg";
 import starRegular from "../assets/star-regular.svg";
-import { Button } from "react-bootstrap";
+import { Button, Container, Modal } from "react-bootstrap";
 import DispatchContext from "../DispatchContext";
 import StateContext from "../StateContext";
+import ProductDetails from "./ProductDetails";
+import { Link, useNavigate } from "react-router-dom";
 
 function Product({ id, title, category, image, price, rating, inventory }) {
   const dispatch = useContext(DispatchContext);
+  const [showDetails, setShowDetails] = useState(false);
 
   const addToCart = () => {
     dispatch({
@@ -16,7 +19,7 @@ function Product({ id, title, category, image, price, rating, inventory }) {
     });
   };
 
-  const goToDetails = () => {};
+  useEffect(() => {}, [showDetails]);
 
   return (
     <div className="product">
@@ -37,7 +40,9 @@ function Product({ id, title, category, image, price, rating, inventory }) {
       <img src={image} />
       <div className="product__buttons">
         <Button onClick={addToCart}>Add to Cart</Button>
-        <Button onClick={goToDetails}>Details</Button>
+        <Link to={`/${category.toLowerCase()}/${id}`}>
+          <Button>Details</Button>
+        </Link>
       </div>
     </div>
   );

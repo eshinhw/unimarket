@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <div className="home">
       <div className="home__container">
-        <img className="home__image" src={bannerImg2} />
+        <img className="home__image" src={bannerImg2} alt="" />
         <div className="home__row">
           {testData.data.map((item, idx) => (
             <Product

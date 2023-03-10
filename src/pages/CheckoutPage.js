@@ -6,6 +6,7 @@ import "../css/CheckoutPage.css";
 import Subtotal from "../components/Subtotal";
 
 function CheckoutPage() {
+  console.log("CheckoutPage")
   const state = useContext(StateContext);
   const [emptyCart, setEmptyCart] = useState(false);
   const [total, setTotal] = useState(0);
@@ -24,6 +25,7 @@ function CheckoutPage() {
 
   useEffect(() => {
     checkEmptyCart();
+    console.log(state.cart);
   }, [state]);
 
   return (
@@ -40,7 +42,7 @@ function CheckoutPage() {
               <CartProduct
                 className="home__row__item"
                 id={item.id}
-                title={item.title}
+                title={item.title || item.name}
                 category={item.category}
                 image={item.image}
                 price={item.price}

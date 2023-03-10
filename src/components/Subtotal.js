@@ -1,4 +1,3 @@
-import { prettyFormat } from "@testing-library/react";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import "../css/Subtotal.css";
@@ -20,10 +19,10 @@ function Subtotal({ total }) {
     <div className="subtotal">
       <div className="subtotal__elements">
         <h3>Subtotal: {total} ETH</h3>
-        <div className="gift__check">
+        {/* <div className="gift__check">
           <input type="checkbox" onClick={handleGiftFee} /> <h5>This contains a gift.</h5>
         </div>
-        {isGift ? "Gift Fee of 1 ETH Will Be Added at Checkout" : <></>}
+        {isGift ? "Gift Fee of 1 ETH Will Be Added at Checkout" : <></>} */}
         <br />
         <Button className="proceed__button">Proceed to Checkout</Button>
       </div>

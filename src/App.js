@@ -15,6 +15,7 @@ import UniMarketABI from "./abis/UniMarket.json";
 // Config
 import config from "./config.json";
 import DispatchContext from "./DispatchContext";
+import ProductDetails from "./components/ProductDetails";
 
 export default function App() {
   const initialState = {
@@ -48,7 +49,7 @@ export default function App() {
       currItemCopy.price = ethers.utils.formatUnits(currItem.cost.toString(), "ether");
       items.push(currItemCopy);
     }
-    console.log(items)
+    console.log(items);
     dispatch({ type: "SET_UP_UNIMARKET", payload: unimarket });
     dispatch({ type: "SET_UP_PROVIDER", payload: provider });
     dispatch({ type: "SET_UP_ACCOUNT", payload: account });
@@ -82,6 +83,7 @@ export default function App() {
                 element={[<Header />, <CategoryPage category="Clothing" />]}
               />
               <Route path="/checkout" element={[<Header />, <CheckoutPage />]} />
+              <Route path="/:category/:id" element={[<Header />, <ProductDetails />]} />
             </Routes>
           </BrowserRouter>
         </StateContext.Provider>
